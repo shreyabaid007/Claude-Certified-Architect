@@ -139,9 +139,9 @@ The lesson: a demo is not evidence of determinism. The four properties are prese
 flowchart LR
     classDef risk fill:#fce4ec,stroke:#e91e63,color:#000
 
-    C(["<b>Cost</b><br/>Designing without these properties<br/>is the most expensive mistake.<br/>The cost lands after launch when<br/>rework is costliest and rebuilding<br/>trust is hardest."]):::risk
-    X(["<b>Complexity</b><br/>Naming the properties up front<br/>keeps later conversations precise.<br/>'This is a knowledge-boundary<br/>problem' beats debating if the<br/>model is 'good enough.'"]):::risk
-    R(["<b>Risk</b><br/>The properties don't announce<br/>themselves. A system that ignores<br/>them won't error. It drifts quietly.<br/>Found in an audit or by an angry<br/>user, not by the system itself."]):::risk
+    C["<b>Cost</b><br/>Designing without these properties<br/>is the most expensive mistake.<br/>The cost lands after launch when<br/>rework is costliest and rebuilding<br/>trust is hardest."]:::risk
+    X["<b>Complexity</b><br/>Naming the properties up front<br/>keeps later conversations precise.<br/>'This is a knowledge-boundary<br/>problem' beats debating if the<br/>model is 'good enough.'"]:::risk
+    R["<b>Risk</b><br/>The properties don't announce<br/>themselves. A system that ignores<br/>them won't error. It drifts quietly.<br/>Found in an audit or by an angry<br/>user, not by the system itself."]:::risk
 
     C ~~~ X ~~~ R
 ```
