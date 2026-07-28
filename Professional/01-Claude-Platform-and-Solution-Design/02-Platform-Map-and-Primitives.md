@@ -8,34 +8,27 @@ You know the four properties from the previous section. Now name the two remaini
 
 These layers are not alternatives. Every deployment involves all three. Confusing them is the most common source of muddled architecture conversations.
 
-```mermaid
-flowchart TD
-    subgraph EP["<b>Entry Points</b><br/>What a person or system directly interacts with"]
-        E1["Claude.ai<br/>(web, mobile, desktop)"]
-        E2["Claude Code"]
-        E3["Custom app<br/>built on the API"]
-    end
-
-    subgraph BI["<b>Build-Time Interfaces</b><br/>How an engineer programs against Claude"]
-        B1["Direct API"]
-        B2["SDKs"]
-        B3["MCP"]
-        B4["Agent SDK"]
-    end
-
-    subgraph DR["<b>Delivery Routes</b><br/>Where API traffic terminates"]
-        D1["Anthropic<br/>directly"]
-        D2["AWS<br/>Bedrock"]
-        D3["GCP<br/>Vertex AI"]
-        D4["Microsoft<br/>Foundry"]
-    end
-
-    E3 --> B1
-    B4 --> D1
-
-    style EP fill:#fff3cd,stroke:#ffc107,color:#000
-    style BI fill:#d4edda,stroke:#28a745,color:#000
-    style DR fill:#cce5ff,stroke:#007bff,color:#000
+```
+┌─────────────────────────────────────────────────────────────┐
+│  ENTRY POINTS                        Stakeholder: User      │
+│  What a person or system directly interacts with            │
+│                                                             │
+│  Claude.ai (web/mobile/desktop) · Claude Code · Custom App  │
+├──────────────────────────────┬──────────────────────────────┤
+│                              ↓                              │
+├──────────────────────────────┴──────────────────────────────┤
+│  BUILD-TIME INTERFACES               Stakeholder: Engineer  │
+│  How an engineer programs against Claude                    │
+│                                                             │
+│  Direct API · SDKs · MCP · Agent SDK                        │
+├──────────────────────────────┬──────────────────────────────┤
+│                              ↓                              │
+├──────────────────────────────┴──────────────────────────────┤
+│  DELIVERY ROUTES                     Stakeholder: Infra     │
+│  Where API traffic terminates                               │
+│                                                             │
+│  Anthropic · AWS Bedrock · GCP Vertex AI · Microsoft Foundry│
+└─────────────────────────────────────────────────────────────┘
 ```
 
 | Layer | Chosen for | Stakeholder |
@@ -44,9 +37,7 @@ flowchart TD
 | **Build-Time Interface** | The engineering team and the integration | Developer, tech lead |
 | **Delivery Route** | Cloud commitments and compliance posture | Infrastructure, security, procurement |
 
-A decision in one layer rarely dictates the others. These are three different conversations with three different stakeholders.
-
-> **Rule of thumb:** Learn the names and the distinction now. Selecting among them under real constraints comes later, once you have a model, a pattern, and an architecture to fit them to.
+> **The key:** A decision in one layer rarely dictates the others. These are three different conversations with three different stakeholders.
 
 ### Scenario: Collapsing the Layers
 
@@ -79,22 +70,27 @@ A decision in one layer rarely dictates the others. These are three different co
 Every pattern in this course (augmented call, workflow, agent) is an assembly of these primitives. Name them once here so later lessons become combinations of parts you already recognize.
 
 ```
-┌───────────────────┬───────────────────┬───────────────────┬───────────────────┐
-│  Tools            │  MCP              │  Subagents        │  Hooks            │
-│  Act              │  Connect          │  Isolate /        │  Guarantee        │
-│                   │                   │  Parallelize      │                   │
-├───────────────────┼───────────────────┼───────────────────┼───────────────────┤
-│  Skills           │  Agent Teams      │  Dynamic          │                   │
-│  Package a        │  Coordinate       │  Workflows        │                   │
-│  Procedure        │  Peers            │  Compose at       │                   │
-│                   │                   │  Runtime          │                   │
-└───────────────────┴───────────────────┴───────────────────┴───────────────────┘
+┌──────────────────┬──────────────────┬──────────────────┐
+│  Tools           │  MCP             │  Subagents       │
+│  ─────           │  ───             │  ─────────       │
+│  Act             │  Connect         │  Isolate /       │
+│                  │                  │  Parallelize     │
+├──────────────────┼──────────────────┼──────────────────┤
+│  Hooks           │  Skills          │  Agent Teams     │
+│  ─────           │  ──────          │  ───────────     │
+│  Guarantee       │  Package a       │  Coordinate      │
+│                  │  Procedure       │  Peers           │
+├──────────────────┴──────────────────┴──────────────────┤
+│  Dynamic Workflows                                     │
+│  ─────────────────                                     │
+│  Compose steps at runtime, not fixed in advance        │
+└────────────────────────────────────────────────────────┘
 ```
 
 | Primitive | Job | What it is |
 |-----------|-----|------------|
 | **Tools** | Act | A function the model can call to take an action or fetch a result from your code |
-| **MCP** | Connect | A protocol for exposing a set of tools so multiple Claude clients can reach the same entry points |
+| **MCP** | Connect | A protocol for exposing a set of tools so multiple Claude clients reach the same entry points |
 | **Subagents** | Isolate / Parallelize | Hand a scoped sub-task to a separate context so work runs in isolation or in parallel |
 | **Hooks** | Guarantee | Deterministic code that fires on defined events to enforce a rule the model cannot skip |
 | **Skills** | Package a Procedure | A versioned, reusable unit (instructions plus optional scripts) that packages a repeatable procedure |
@@ -107,31 +103,30 @@ Every pattern in this course (augmented call, workflow, agent) is an assembly of
 
 You are not choosing among primitives yet. Here is the preview of how they compose:
 
-```mermaid
-flowchart LR
-    T["Tools"] --> W["<b>Workflow</b><br/>Steps wired in your code"]
-    T --> A["<b>Agent</b><br/>Model chooses its own<br/>sequence of Tool calls"]
-    T --> MA["<b>Multi-Agent System</b><br/>Orchestrator delegating<br/>to Subagents"]
+```
+                         ┌─────────────────────────────────┐
+                         │          PATTERNS                │
+                         └─────────────────────────────────┘
 
-    H["Hooks"] -.-> W
-    H -.-> A
-    SK["Skills"] -.-> A
-    S["Subagents"] --> MA
-    AT["Agent Teams"] --> MA
-    DW["Dynamic Workflows"] -.-> MA
+  ┌─────────────────┐   ┌─────────────────┐   ┌──────────────────────┐
+  │    Workflow      │   │     Agent       │   │  Multi-Agent System  │
+  │                  │   │                 │   │                      │
+  │  Steps wired in  │   │  Model chooses  │   │  Orchestrator        │
+  │  YOUR code       │   │  ITS OWN        │   │  delegates to        │
+  │                  │   │  sequence        │   │  Subagents           │
+  ├──────────────────┤   ├─────────────────┤   ├──────────────────────┤
+  │  Core:  Tools    │   │  Core:  Tools   │   │  Core:  Tools        │
+  │  Opt:   Hooks    │   │  Opt:   Skills  │   │         Subagents    │
+  │                  │   │         Hooks   │   │         Agent Teams  │
+  │                  │   │                 │   │  Opt:   Dyn Workflows│
+  │                  │   │                 │   │         Hooks        │
+  └──────────────────┘   └─────────────────┘   └──────────────────────┘
 
-    style W fill:#fff3cd,stroke:#ffc107,color:#000
-    style A fill:#fff3cd,stroke:#ffc107,color:#000
-    style MA fill:#fff3cd,stroke:#ffc107,color:#000
+       You control            Model controls         Orchestrator
+       the sequence           the sequence           distributes work
 ```
 
-| Pattern | Core Primitives | Optional Primitives |
-|---------|----------------|---------------------|
-| **Workflow** | Tools | Hooks |
-| **Agent** | Tools | Skills, Hooks |
-| **Multi-Agent System** | Tools, Subagents, Agent Teams | Dynamic Workflows, Hooks |
-
-When you reach the pattern selection lessons, you will be composing primitives you have already named, not meeting them for the first time.
+> **The key:** A Workflow is you telling the model what to do step by step. An Agent is the model deciding its own steps. A Multi-Agent System is agents coordinating as a team. The control shifts from you to the model as you move right.
 
 ### Scenario: Missing Shared Vocabulary
 
@@ -194,8 +189,9 @@ Cover the third column and quiz yourself.
 
 | If you see... | The trap | The right call |
 |---------------|----------|----------------|
-| "Should we use an entry point or a delivery route?" | Picking one over the other | They are not alternatives. Every deployment involves all three layers. The answer is both. |
-| Claude Code proposed for bank branch staff | "It's all Claude, same model underneath" | Wrong entry point for the user. Entry point is chosen for the user, not the model. Claude Code is for developers in a terminal. |
-| "We'll use an agent" in an architecture review | Treating it as a complete architecture statement | It conflates primitives. Name which ones: "a tool-calling agent" or "subagents with an orchestrator." Missing vocabulary is the root cause. |
-| "Enforce a rule the model must never violate" | System prompt with strong wording | Hooks. They are the only primitive that fires deterministically. The model cannot skip a hook. A system prompt can be ignored. |
-| Fixed predictable steps vs sequence depends on intermediate results | Calling both "an agent" | Fixed steps = Workflow (you control sequence). Dynamic sequence = Agent (model controls sequence). Different primitives, different tradeoffs. |
+| "Should we use an entry point or a delivery route?" | Picking one over the other | They are not alternatives. Every deployment involves all three layers. |
+| Claude Code proposed for bank branch staff | "It's all Claude, same model underneath" | Wrong entry point for the user. Entry point is chosen for the user, not the model. |
+| "We'll use an agent" in an architecture review | Treating it as a complete architecture statement | Name which primitives: "a tool-calling agent" or "subagents with an orchestrator." |
+| "Enforce a rule the model must never violate" | System prompt with strong wording | Hooks. Only primitive that fires deterministically. The model cannot skip a hook. |
+| Fixed predictable steps vs dynamic sequence | Calling both "an agent" | Fixed steps = Workflow (you control). Dynamic = Agent (model controls). |
+| "We need Agent Teams for this two-step task" | Reaching for the heaviest primitive | Use the fewest primitives. A single tool call may be all you need. |
