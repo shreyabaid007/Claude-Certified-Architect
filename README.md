@@ -10,9 +10,6 @@ Study notes for the **Claude Certified Architect** (Foundation level) exam. Each
 | 02 | [Building with the Claude API](02-Building-with-the-Claude-API/) | Done |
 | 03 | [Claude on Google Cloud](03-Claude-on-Google-Cloud/) | Done |
 | 04 | [Claude Code in Action](04-Claude-Code-in-Action/) | Done |
-| 05 | [Claude 101](05-Claude-101/) | Upcoming |
-| 06 | [Claude with Amazon Bedrock](06-Claude-with-Amazon-Bedrock/) | Upcoming |
-| 07 | [Introduction to Model Context Protocol](07-Introduction-to-Model-Context-Protocol/) | Upcoming |
 
 ## How to Use
 
