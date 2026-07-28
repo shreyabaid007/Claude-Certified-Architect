@@ -54,7 +54,7 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-    classDef risk fill:#fce4ec,stroke:#e91e63,color:#000
+    classDef risk fill:#e8eaf6,stroke:#5c6bc0,color:#000
 
     C["<b>Cost</b><br/>Picking the wrong layer because<br/>the vocabulary was unclear means<br/>paying for the wrong solution,<br/>then paying again to replace it."]:::risk
     X["<b>Complexity</b><br/>When the three layers are named<br/>precisely, a design review isolates<br/>which decision is contested.<br/>When blurred, it argues in circles."]:::risk
@@ -131,7 +131,7 @@ Shared vocabulary eliminates this. The primitives table above is the starting po
 
 ```mermaid
 flowchart LR
-    classDef risk fill:#fce4ec,stroke:#e91e63,color:#000
+    classDef risk fill:#e8eaf6,stroke:#5c6bc0,color:#000
 
     C["<b>Cost</b><br/>Reaching for a heavier primitive<br/>than the job requires is paid in<br/>latency, tokens, and operational<br/>surface area on every request."]:::risk
     X["<b>Complexity</b><br/>Each primitive added is a part to<br/>build, observe, and govern. Use<br/>the fewest primitives necessary<br/>to meet the requirement."]:::risk

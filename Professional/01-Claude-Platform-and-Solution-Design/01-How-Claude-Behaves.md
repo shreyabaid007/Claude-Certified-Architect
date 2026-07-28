@@ -137,7 +137,7 @@ The lesson: a demo is not evidence of determinism. The four properties are prese
 
 ```mermaid
 flowchart LR
-    classDef risk fill:#fce4ec,stroke:#e91e63,color:#000
+    classDef risk fill:#e8eaf6,stroke:#5c6bc0,color:#000
 
     C["<b>Cost</b><br/>Designing without these properties<br/>is the most expensive mistake.<br/>The cost lands after launch when<br/>rework is costliest and rebuilding<br/>trust is hardest."]:::risk
     X["<b>Complexity</b><br/>Naming the properties up front<br/>keeps later conversations precise.<br/>'This is a knowledge-boundary<br/>problem' beats debating if the<br/>model is 'good enough.'"]:::risk
