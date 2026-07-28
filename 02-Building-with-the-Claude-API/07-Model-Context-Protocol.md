@@ -17,8 +17,6 @@ flowchart TD
     end
 ```
 
-![The tool function problem at scale](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542646%2F09_-_001_-_Introducing_MCP_05.1748542646307.jpg)
-
 MCP exists to eliminate this burden. Someone else writes and hosts the tools. You just connect to them.
 
 ---
@@ -45,8 +43,6 @@ flowchart LR
     B --> B3
     B --> B4
 ```
-
-![Tools live inside the MCP server, not your code](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542646%2F09_-_001_-_Introducing_MCP_08.1748542646653.jpg)
 
 The trade is simple. Without MCP, you own every tool definition and function. With MCP, you consume tools that someone else already built and tested.
 
@@ -108,8 +104,6 @@ MCP is **transport agnostic**: the client and server can talk over different cha
 | **stdio** | Same machine, standard I/O | Local development. Most common. |
 | **HTTP** | Network request/response | Client and server on different machines |
 | **WebSockets** | Persistent connection | Real-time, bidirectional communication |
-
-![Transport options](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542645%2F09_-_002_-_MCP_Clients_03.1748542645442.jpg)
 
 For local development (and the project below), stdio is the default. Both processes run on your machine and communicate through standard input/output.
 
@@ -176,8 +170,6 @@ sequenceDiagram
 | **ListToolsResult** | Server to Client | Returns the list of tool schemas |
 | **CallToolRequest** | Client to Server | "Run this tool with these arguments" |
 | **CallToolResult** | Server to Client | Returns the tool's output |
-
-![Message types defined by the MCP spec](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542645%2F09_-_002_-_MCP_Clients_04.1748542645814.jpg)
 
 This is the same tool-use loop you already know, but the client and server handle the plumbing. Your application just calls `list_tools()` and `call_tool()`.
 
@@ -567,8 +559,6 @@ Four phases, each with a clear responsibility:
 | **Tool execution** | The chosen tool runs on the MCP server, results flow back | MCP Client + MCP Server |
 | **Final response** | Claude uses the tool result to generate a human-readable answer | Claude API |
 
-![Complete flow from user to response](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542651%2F09_-_002_-_MCP_Clients_18.1748542650970.jpg)
-
 > **The key:** your server never touches the external service directly. The MCP server wraps that. Your server only talks to two things: the MCP client (for tools, resources, prompts) and Claude (for reasoning).
 
 ---
@@ -586,8 +576,6 @@ flowchart LR
     E --> F["<b>Claude edits doc</b><br/>via edit_document"]
     F --> G["<b>Formatted result</b><br/>returned to user"]
 ```
-
-![Prompt-triggered workflow](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542820%2F09_-_010_-_Prompts_in_the_Client_15.1748542820224.jpg)
 
 Notice how all three primitives can work together: the user triggers a **prompt**, which instructs Claude to use **tools**, and the application might pre-load context via **resources**. They are complementary, not competing.
 

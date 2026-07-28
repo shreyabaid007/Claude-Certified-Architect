@@ -17,10 +17,6 @@ flowchart LR
 
 With thinking enabled, the response contains two parts: the reasoning process and the final answer.
 
-![Response structure with thinking enabled](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542429%2F08_-_001_-_Extended_Thinking_04.1748542429342.jpg)
-
-![Thinking and text blocks in the response](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542429%2F08_-_001_-_Extended_Thinking_05.1748542429732.jpg)
-
 ### When to Use It
 
 Run your prompts without thinking first. If accuracy falls short after prompt optimization, enable thinking. It is not a starting point.
@@ -56,13 +52,9 @@ chat(messages, thinking=True, thinking_budget=1024)
 
 Each thinking block includes a cryptographic **signature**. This token proves you haven't modified the reasoning text, preventing tampering that could lead the model in unsafe directions.
 
-![Signature system in extended thinking responses](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542430%2F08_-_001_-_Extended_Thinking_06.1748542430208.jpg)
-
 ### Redacted Thinking
 
 Sometimes Claude's thinking gets flagged by internal safety systems. When this happens, you receive a **redacted thinking block** containing encrypted content instead of readable text. You can still pass this block back to Claude in future messages to preserve conversation context.
-
-![Redacted thinking block example](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542430%2F08_-_001_-_Extended_Thinking_08.1748542430775.jpg)
 
 > **Tip:** you can force a redacted thinking block with a special trigger string for testing purposes. Make sure your application handles redacted responses without crashing.
 
@@ -75,8 +67,6 @@ Extended thinking is **not compatible** with some other features, notably messag
 ## Image Support
 
 Claude can analyze images included in your messages: describe contents, compare multiple images, count objects, or perform complex visual analysis.
-
-![Image handling overview](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542455%2F08_-_002_-_Image_Support_01.1748542455758.jpg)
 
 ### Limits
 
@@ -124,13 +114,9 @@ sequenceDiagram
     C->>S: Text block (analysis)
 ```
 
-![Image message flow](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542456%2F08_-_002_-_Image_Support_02.1748542456229.jpg)
-
 ### Prompting for Accuracy
 
 Simple prompts lead to poor results on visual tasks. The same prompt engineering techniques from text apply to images.
-
-![Prompting techniques for images](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542457%2F08_-_002_-_Image_Support_04.1748542456885.jpg)
 
 | Technique | What to do |
 |---|---|
@@ -139,8 +125,6 @@ Simple prompts lead to poor results on visual tasks. The same prompt engineering
 | **Detailed guidelines** | Break complex tasks into numbered analysis steps |
 
 #### Example: Structured Prompt for Counting
-
-![Step-by-step analysis approach](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542457%2F08_-_002_-_Image_Support_05.1748542457338.jpg)
 
 ```text
 Analyze this image of marbles using this methodology:
@@ -152,11 +136,7 @@ What is the exact, verified number of marbles?
 
 #### Example: Fire Risk Assessment
 
-![One-shot example approach](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542458%2F08_-_002_-_Image_Support_07.1748542457815.jpg)
-
 A practical application: automating fire risk scores from satellite imagery. Instead of "give me a fire risk score," a structured prompt walks Claude through residence identification, tree overhang analysis, defensible space assessment, and a 1-4 rating scale with explicit criteria for each level.
-
-![Fire risk assessment example](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542458%2F08_-_002_-_Image_Support_08.1748542458276.jpg)
 
 > **The key:** invest time in crafting structured prompts. Simple questions give unreliable results on complex visual tasks.
 
@@ -197,8 +177,6 @@ add_user_message(messages, [
 ])
 ```
 
-![PDF processing result](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542484%2F08_-_003_-_PDF_Support_02.1748542484779.jpg)
-
 > **Tip:** Claude understands document structure, embedded images, charts, and table relationships. It is not just doing text extraction.
 
 ---
@@ -206,8 +184,6 @@ add_user_message(messages, [
 ## Citations
 
 Citations let Claude reference specific parts of your source documents, showing users exactly where each piece of information comes from. Without citations, users have no way to verify that Claude is referencing your provided document rather than its training data.
-
-![Why citations matter](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542499%2F08_-_004_-_Citations_00.1748542499688.jpg)
 
 ```mermaid
 flowchart LR
@@ -235,8 +211,6 @@ Add `title` and `citations` fields to your document block:
 
 ### Citation Structure
 
-![Citation response structure](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542500%2F08_-_004_-_Citations_08.1748542500257.jpg)
-
 Each citation in the response contains:
 
 | Field | What it tells you |
@@ -246,8 +220,6 @@ Each citation in the response contains:
 | **document_title** | The title you assigned |
 | **start_page_number** | Where the cited text begins |
 | **end_page_number** | Where the cited text ends |
-
-![Citation fields detail](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542500%2F08_-_004_-_Citations_09.1748542500755.jpg)
 
 You can build interactive UIs where users hover over citation markers to see where information came from.
 
@@ -282,8 +254,6 @@ Prompt caching saves Claude's preprocessing work so it can be reused on follow-u
 
 ### Why It Matters
 
-![Normal request processing](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542537%2F08_-_005_-_Prompt_Caching_01.1748542536808.jpg)
-
 Every request without caching goes through four preprocessing steps before generating output:
 
 ```mermaid
@@ -295,17 +265,7 @@ flowchart LR
     style E fill:#f8d7da,stroke:#dc3545,color:#000
 ```
 
-![Preprocessing steps detail](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542537%2F08_-_005_-_Prompt_Caching_04.1748542537345.jpg)
-
-After generating the response, all preprocessing work is discarded.
-
-![Work discarded after response](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542537%2F08_-_005_-_Prompt_Caching_07.1748542537838.jpg)
-
-In a conversation where you repeatedly send the same large document, Claude reprocesses identical content every time.
-
-![Redundant reprocessing on follow-up requests](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542538%2F08_-_005_-_Prompt_Caching_09.1748542538396.jpg)
-
-![Claude could reuse previous work](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542539%2F08_-_005_-_Prompt_Caching_11.1748542538911.jpg)
+After generating the response, all preprocessing work is discarded. In a conversation where you repeatedly send the same large document, Claude reprocesses identical content every time.
 
 Caching stores the preprocessing results instead of discarding them.
 
@@ -315,10 +275,6 @@ flowchart LR
     B --> C["<b>Follow-up requests</b><br/>read from cache, skip preprocessing"]
     style B fill:#d4edda,stroke:#28a745,color:#000
 ```
-
-![How prompt caching saves work](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542539%2F08_-_005_-_Prompt_Caching_15.1748542539641.jpg)
-
-![Cache as lookup table](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542540%2F08_-_005_-_Prompt_Caching_17.1748542540035.jpg)
 
 | Benefit | Detail |
 |---|---|
@@ -332,25 +288,13 @@ flowchart LR
 | **Requires identical content** | Any change invalidates the cache |
 | **Minimum size** | Content must be at least 1024 tokens |
 
-![Benefits and limitations summary](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542540%2F08_-_005_-_Prompt_Caching_19.1748542540458.jpg)
-
 ### Cache Breakpoints
 
 Caching is **not automatic**. You must add a `cache_control` field to mark where caching should happen. Everything before the breakpoint gets cached.
 
-![Cache breakpoints overview](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542547%2F08_-_006_-_Rules_of_Prompt_Caching_04.1748542546894.jpg)
-
 > **The trap:** the shorthand text format doesn't support cache control. You must use the longhand block format.
 
-![Shorthand vs longhand text block format](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542547%2F08_-_006_-_Rules_of_Prompt_Caching_06.1748542547409.jpg)
-
-How cache breakpoints work: Claude caches all processing up to and including the breakpoint. Content after the breakpoint is processed normally.
-
-![How breakpoints cache content](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542547%2F08_-_006_-_Rules_of_Prompt_Caching_08.1748542547846.jpg)
-
-For the cache to be useful, content must be identical up to the breakpoint. Even small changes invalidate the cache.
-
-![Cache invalidation on content change](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542548%2F08_-_006_-_Rules_of_Prompt_Caching_10.1748542548220.jpg)
+Claude caches all processing up to and including the breakpoint. Content after the breakpoint is processed normally. For the cache to be useful, content must be identical up to the breakpoint. Even small changes invalidate the cache.
 
 #### Caching Tool Schemas
 
@@ -392,21 +336,11 @@ Use the longhand format and add `cache_control`:
 }
 ```
 
-Cache breakpoints can span across multiple messages and message types.
-
-![Cross-message caching](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542548%2F08_-_006_-_Rules_of_Prompt_Caching_11.1748542548748.jpg)
-
-You are not limited to text blocks. Cache breakpoints work on system prompts, tool definitions, images, and tool use/result blocks.
-
-![Cacheable block types](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542549%2F08_-_006_-_Rules_of_Prompt_Caching_13.1748542549124.jpg)
+Cache breakpoints can span across multiple messages and message types. You are not limited to text blocks: cache breakpoints work on system prompts, tool definitions, images, and tool use/result blocks.
 
 ### Cache Rules
 
 Claude processes request components in this order: tools first, then system prompt, then messages.
-
-![Cache processing order](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542550%2F08_-_006_-_Rules_of_Prompt_Caching_15.1748542549957.jpg)
-
-![Multiple breakpoints example](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542550%2F08_-_006_-_Rules_of_Prompt_Caching_17.1748542550452.jpg)
 
 | Rule | Detail |
 |---|---|
@@ -416,13 +350,7 @@ Claude processes request components in this order: tools first, then system prom
 | **Processing order** | Tools first, then system prompt, then messages |
 | **Cacheable block types** | Text, system prompts, tool definitions, images, tool use/result blocks |
 
-Content must be at least 1024 tokens to be eligible for caching.
-
-![Minimum content length requirement](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542550%2F08_-_006_-_Rules_of_Prompt_Caching_19.1748542550839.jpg)
-
 ### Reading Cache Usage
-
-![Prompt caching in action](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542595%2F08_-_007_-_Prompt_Caching_in_Action_19.1748542594923.jpg)
 
 The API response tells you what happened:
 
@@ -448,8 +376,6 @@ Two features that work best together: the **Files API** for uploading and downlo
 
 ### Files API
 
-![Files API overview](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542605%2F08_-_008_-_Code_Execution_and_the_Files_API_01.1748542605372.jpg)
-
 Instead of encoding files as base64 in every message, upload them once and reference them by ID.
 
 ```mermaid
@@ -458,15 +384,11 @@ flowchart LR
     B --> C["<b>Reference file ID</b><br/>in future messages"]
 ```
 
-![File upload and reference flow](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542606%2F08_-_008_-_Code_Execution_and_the_Files_API_02.1748542606050.jpg)
-
 This is useful when you reference the same file multiple times or work with large files.
 
 ### Code Execution
 
 A server-side tool where Claude writes and runs Python code in an isolated Docker container. You include a predefined tool schema, and Claude decides when to execute code.
-
-![Code execution environment](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542607%2F08_-_008_-_Code_Execution_and_the_Files_API_04.1748542607054.jpg)
 
 ```python
 tools = [{"type": "code_execution_20250522", "name": "code_execution"}]
@@ -482,8 +404,6 @@ tools = [{"type": "code_execution_20250522", "name": "code_execution"}]
 ### Combining Both
 
 The Docker container has no network access, so the Files API is the primary way to get data in and out.
-
-![Combining Files API and Code Execution](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542607%2F08_-_008_-_Code_Execution_and_the_Files_API_06.1748542607578.jpg)
 
 ```mermaid
 sequenceDiagram
@@ -502,8 +422,6 @@ sequenceDiagram
 ```
 
 ### Example: Data Analysis Workflow
-
-![Streaming service data example](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542608%2F08_-_008_-_Code_Execution_and_the_Files_API_08.1748542608112.jpg)
 
 Upload a CSV file and ask Claude to analyze it:
 
@@ -536,8 +454,6 @@ The response contains multiple block types interleaved:
 | **Server tool use blocks** | The Python code Claude wrote and ran |
 | **Code execution result blocks** | Output from running the code |
 | **Code execution output blocks** | Generated files (plots, reports) with downloadable file IDs |
-
-![Response with multiple block types](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748542608%2F08_-_008_-_Code_Execution_and_the_Files_API_13.1748542608585.jpg)
 
 Claude may execute code multiple times in a single response, iteratively building up its analysis.
 
