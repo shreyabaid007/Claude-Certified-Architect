@@ -7,7 +7,15 @@ Study notes for the **Claude Certified Architect** certification exams. Each mod
 | Level | Status |
 |---|--------|
 | [Foundations](Foundations/) | In progress |
-| [Professional](Professional/) | Upcoming |
+| [Professional](Professional/) | In progress |
+
+**Status vocabulary**, used consistently at every level of this repo:
+
+| Status | Means |
+|---|--------|
+| **Done** | Every topic in the module has study notes |
+| **In progress** | Some topics have notes, some don't. The module index says which |
+| **Registered** | Enrolled in the course, no notes written yet |
 
 ## How to Use
 

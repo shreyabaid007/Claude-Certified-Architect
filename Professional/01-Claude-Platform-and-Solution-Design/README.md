@@ -2,7 +2,18 @@
 
 Master the design decisions that translate an ambiguous business problem into a defensible Claude solution architecture.
 
-**Status:** Done
+**Status:** In progress
+
+---
+
+## Notes in This Module
+
+| Notes | Covers |
+|---|---|
+| [01-How-Claude-Behaves](01-How-Claude-Behaves.md) | The four properties, their design consequences, and the context-window error codes |
+| [02-Platform-Map-and-Primitives](02-Platform-Map-and-Primitives.md) | Entry points, build-time interfaces, delivery routes, and the seven primitives |
+
+Not yet written: reference architectures and RAG, model and context strategy, and the augmented call / workflow / agent pattern costs.
 
 ---
 
@@ -10,12 +21,12 @@ Master the design decisions that translate an ambiguous business problem into a 
 
 Before you build anything, you make four decisions:
 
-| # | Decision | What you're answering |
-|---|----------|-----------------------|
-| 01 | What part of the work should Claude own? | What goes to Claude, what stays with existing systems, what stays with a human |
-| 02 | What shape is the work? | Augmented call, automated workflow, or autonomous agent |
-| 03 | Can you name the reference architecture? | Pick a known blueprint upfront or risk expensive pivots later |
-| 04 | Where does your work interact with Claude? | Entry point, model, and context strategy that keep it working and cost-conscious |
+| # | Decision | What you're answering | Notes |
+|---|----------|-----------------------|-------|
+| 01 | What part of the work should Claude own? | What goes to Claude, what stays with existing systems, what stays with a human | [Vocabulary covered](01-How-Claude-Behaves.md) |
+| 02 | What shape is the work? | Augmented call, automated workflow, or autonomous agent | [Patterns named](02-Platform-Map-and-Primitives.md#why-inventory-them-now), costs not yet |
+| 03 | Can you name the reference architecture? | Pick a known blueprint upfront or risk expensive pivots later | Not yet written |
+| 04 | Where does your work interact with Claude? | Entry point, model, and context strategy that keep it working and cost-conscious | [Entry points covered](02-Platform-Map-and-Primitives.md), model and context strategy not yet |
 
 ---
 
