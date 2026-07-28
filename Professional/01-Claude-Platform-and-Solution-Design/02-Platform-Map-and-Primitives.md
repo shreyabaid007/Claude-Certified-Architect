@@ -54,11 +54,11 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-    classDef concept fill:#fff3cd,stroke:#ffc107,color:#000
+    classDef risk fill:#d6eaf8,stroke:#2980b9,color:#000
 
-    C["<b>Cost</b><br/>Wrong layer = wrong solution.<br/>You pay once to build it,<br/>then again to replace it."]:::concept
-    X["<b>Complexity</b><br/>Named precisely, a review<br/>isolates which decision is<br/>contested. Blurred, it<br/>argues in circles."]:::concept
-    R["<b>Risk</b><br/>Entry point chosen before<br/>the user is named. Common,<br/>avoidable, traceable to<br/>collapsing the layers."]:::concept
+    C(["<b>Cost</b><br/>Wrong layer = pay to build,<br/>then pay again to replace."]):::risk
+    X(["<b>Complexity</b><br/>Named precisely = clear review.<br/>Blurred = arguing in circles."]):::risk
+    R(["<b>Risk</b><br/>Entry point chosen before<br/>the user is even named."]):::risk
 
     C ~~~ X ~~~ R
 ```
@@ -131,11 +131,11 @@ Shared vocabulary eliminates this. The primitives table above is the starting po
 
 ```mermaid
 flowchart LR
-    classDef concept fill:#fff3cd,stroke:#ffc107,color:#000
+    classDef risk fill:#d6eaf8,stroke:#2980b9,color:#000
 
-    C["<b>Cost</b><br/>Heavier primitive than the<br/>job requires = latency,<br/>tokens, and operational<br/>surface on every request."]:::concept
-    X["<b>Complexity</b><br/>Each primitive added is a<br/>part to build, observe, and<br/>govern. Use the fewest<br/>that meet the requirement."]:::concept
-    R["<b>Risk</b><br/>Without shared vocabulary,<br/>teams cannot communicate.<br/>They do not agree on<br/>what the parts are."]:::concept
+    C(["<b>Cost</b><br/>Heavy primitive = latency + tokens<br/>on every single request."]):::risk
+    X(["<b>Complexity</b><br/>Each primitive added = one more<br/>part to build, observe, govern."]):::risk
+    R(["<b>Risk</b><br/>No shared vocabulary =<br/>no shared understanding."]):::risk
 
     C ~~~ X ~~~ R
 ```
