@@ -1,15 +1,13 @@
-# Claude Certified Architect: Foundation
+# Claude Certified Architect
 
-Study notes for the **Claude Certified Architect** (Foundation level) exam. Each module distills the official Anthropic course into scannable, revision-friendly notes with diagrams, tables, and quick-reference summaries.
+Study notes for the **Claude Certified Architect** certification exams. Each module distills the official Anthropic course into scannable, revision-friendly notes with diagrams, tables, and quick-reference summaries.
 
-## Modules
+## Certification Levels
 
-| # | Module | Status |
-|---|--------|--------|
-| 01 | [AI Fluency: Framework & Foundations](01-AI-Fluency-Framework-and-Foundations/) | Done |
-| 02 | [Building with the Claude API](02-Building-with-the-Claude-API/) | Done |
-| 03 | [Claude on Google Cloud](03-Claude-on-Google-Cloud/) | Done |
-| 04 | [Claude Code in Action](04-Claude-Code-in-Action/) | Done |
+| Level | Status |
+|---|--------|
+| [Foundations](Foundations/) | In progress |
+| [Professional](Professional/) | Upcoming |
 
 ## How to Use
 
