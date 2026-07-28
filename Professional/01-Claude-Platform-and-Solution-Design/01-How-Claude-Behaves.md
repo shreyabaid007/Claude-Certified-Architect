@@ -34,69 +34,39 @@ The same characteristic that makes Claude capable in one situation is the same o
 
 ## Property 1: Next-Token Prediction
 
-```
-┌────────────────────────────────────────────────────────────┐
-│  NEXT-TOKEN PREDICTION                                     │
-├──────────────┬─────────────────────────────────────────────┤
-│  Capability  │  Summarizing, reformatting, explaining      │
-│              │  well-established concepts. Tasks built     │
-│              │  on common patterns.                        │
-├──────────────┼─────────────────────────────────────────────┤
-│  Limitation  │  Anything requiring precision on specifics. │
-│              │  Can produce text that appears accurate     │
-│              │  but isn't. Risk concentrates around        │
-│              │  names, dates, citations, and statistics.   │
-├──────────────┼─────────────────────────────────────────────┤
-│  Mitigation  │  Citations, uncertainty signaling, and      │
-│              │  generator-verifier loops. Route factual    │
-│              │  lookups through tool calls or              │
-│              │  authoritative sources.                     │
-└──────────────┴─────────────────────────────────────────────┘
+```mermaid
+flowchart LR
+    classDef green fill:#d4edda,stroke:#28a745,color:#000
+    classDef red fill:#f8d7da,stroke:#dc3545,color:#000
+    classDef blue fill:#cce5ff,stroke:#007bff,color:#000
+
+    C["<b>Capability</b><br/>Summarizing, reformatting,<br/>explaining well-established<br/>concepts and common patterns"]:::green --- L["<b>Limitation</b><br/>Precision on specifics.<br/>Names, dates, citations,<br/>statistics. Looks accurate,<br/>but isn't."]:::red --- M["<b>Mitigation</b><br/>Citations, uncertainty signaling,<br/>generator-verifier loops.<br/>Route factual lookups<br/>through tool calls."]:::blue
 ```
 
 ---
 
 ## Property 2: Knowledge
 
-```
-┌────────────────────────────────────────────────────────────┐
-│  KNOWLEDGE                                                 │
-├──────────────┬─────────────────────────────────────────────┤
-│  Capability  │  Topics that are common, recent, and        │
-│              │  consistently represented in training data. │
-├──────────────┼─────────────────────────────────────────────┤
-│  Limitation  │  Topics that are rare, niche, contested,    │
-│              │  or frequently changing. Stale or           │
-│              │  incomplete information presented with      │
-│              │  the same confident tone.                   │
-├──────────────┼─────────────────────────────────────────────┤
-│  Mitigation  │  Web search, RAG, tool use, or MCP servers  │
-│              │  to make an external system the source of   │
-│              │  truth. Re-introduce the data yourself      │
-│              │  rather than relying on training data.      │
-└──────────────┴─────────────────────────────────────────────┘
+```mermaid
+flowchart LR
+    classDef green fill:#d4edda,stroke:#28a745,color:#000
+    classDef red fill:#f8d7da,stroke:#dc3545,color:#000
+    classDef blue fill:#cce5ff,stroke:#007bff,color:#000
+
+    C["<b>Capability</b><br/>Topics that are common,<br/>recent, and consistently<br/>represented in training data"]:::green --- L["<b>Limitation</b><br/>Rare, niche, contested, or<br/>frequently changing topics.<br/>Stale info presented with<br/>the same confident tone."]:::red --- M["<b>Mitigation</b><br/>Web search, RAG, tool use,<br/>or MCP servers. Make an<br/>external system the source<br/>of truth."]:::blue
 ```
 
 ---
 
 ## Property 3: Working Memory
 
-```
-┌────────────────────────────────────────────────────────────┐
-│  WORKING MEMORY                                            │
-├──────────────┬─────────────────────────────────────────────┤
-│  Capability  │  Anything that fits in the active context   │
-│              │  window.                                    │
-├──────────────┼─────────────────────────────────────────────┤
-│  Limitation  │  The context window is a hard edge. Once    │
-│              │  content falls outside, the model has no    │
-│              │  access to it at all.                       │
-├──────────────┼─────────────────────────────────────────────┤
-│  Mitigation  │  Progressive context loading, chunking,     │
-│              │  front-loading critical information.        │
-│              │  Summarize across turns when context        │
-│              │  is getting long.                           │
-└──────────────┴─────────────────────────────────────────────┘
+```mermaid
+flowchart LR
+    classDef green fill:#d4edda,stroke:#28a745,color:#000
+    classDef red fill:#f8d7da,stroke:#dc3545,color:#000
+    classDef blue fill:#cce5ff,stroke:#007bff,color:#000
+
+    C["<b>Capability</b><br/>Anything that fits in<br/>the active context window"]:::green --- L["<b>Limitation</b><br/>Hard edge. Once content<br/>falls outside the window,<br/>the model has zero<br/>access to it."]:::red --- M["<b>Mitigation</b><br/>Progressive context loading,<br/>chunking, front-loading<br/>critical info. Summarize<br/>across turns."]:::blue
 ```
 
 Two distinct errors happen at the context window edge:
@@ -112,26 +82,13 @@ Two distinct errors happen at the context window edge:
 
 ## Property 4: Steerability
 
-```
-┌────────────────────────────────────────────────────────────┐
-│  STEERABILITY                                              │
-├──────────────┬─────────────────────────────────────────────┤
-│  Capability  │  Short, concrete, verifiable instructions   │
-│              │  with defined formats, explicit length      │
-│              │  limits, and clear roles.                   │
-├──────────────┼─────────────────────────────────────────────┤
-│  Limitation  │  Abstract or ambiguous instructions, long   │
-│              │  reasoning chains, tasks requiring precise  │
-│              │  numerical or logical computation. May      │
-│              │  follow the letter while drifting from      │
-│              │  intent.                                    │
-├──────────────┼─────────────────────────────────────────────┤
-│  Mitigation  │  System prompts, structured outputs, code   │
-│              │  execution for logical precision. Restate   │
-│              │  the goal alongside the instruction when    │
-│              │  intent and literal instruction might       │
-│              │  diverge.                                   │
-└──────────────┴─────────────────────────────────────────────┘
+```mermaid
+flowchart LR
+    classDef green fill:#d4edda,stroke:#28a745,color:#000
+    classDef red fill:#f8d7da,stroke:#dc3545,color:#000
+    classDef blue fill:#cce5ff,stroke:#007bff,color:#000
+
+    C["<b>Capability</b><br/>Short, concrete, verifiable<br/>instructions with defined<br/>formats, explicit length<br/>limits, and clear roles"]:::green --- L["<b>Limitation</b><br/>Abstract or ambiguous<br/>instructions, long reasoning<br/>chains, precise computation.<br/>Follows letter, drifts<br/>from intent."]:::red --- M["<b>Mitigation</b><br/>System prompts, structured<br/>outputs, code execution.<br/>Restate the goal alongside<br/>the instruction when they<br/>might diverge."]:::blue
 ```
 
 ---
@@ -142,30 +99,29 @@ Each property maps to a design consequence you will use later in the course.
 
 ```mermaid
 flowchart LR
-    P1["<b>Next-Token<br/>Prediction</b>"]
-    P2["<b>Knowledge</b>"]
-    P3["<b>Working<br/>Memory</b>"]
-    P4["<b>Steerability</b>"]
+    classDef blue fill:#cce5ff,stroke:#007bff,color:#000
+    classDef yellow fill:#fff3cd,stroke:#ffc107,color:#000
+    classDef green fill:#d4edda,stroke:#28a745,color:#000
 
-    D1["<b>Non-determinism</b><br/>Same input, different outputs.<br/>You cannot certify behavior<br/>you only observed once."]
-    D2["<b>Knowledge &<br/>Capability Boundaries</b><br/>Reliable on common topics.<br/>Unreliable on rare or<br/>fast-changing ones."]
-    D3["<b>Context as a<br/>Finite Resource</b><br/>What you put in, the order,<br/>and what you leave out<br/>are design decisions."]
-    D4["<b>Confidence Is<br/>Not Validity</b><br/>Wrong answers arrive in<br/>the same fluent tone<br/>as right ones."]
+    P1["<b>Next-Token<br/>Prediction</b>"]:::blue
+    P2["<b>Knowledge</b>"]:::blue
+    P3["<b>Working<br/>Memory</b>"]:::blue
+    P4["<b>Steerability</b>"]:::blue
+
+    D1["<b>Non-determinism</b><br/>Same input, different outputs.<br/>You cannot certify behavior<br/>you only observed once."]:::yellow
+    D2["<b>Knowledge &<br/>Capability Boundaries</b><br/>Reliable on common topics.<br/>Unreliable on rare or<br/>fast-changing ones."]:::yellow
+    D3["<b>Context as a<br/>Finite Resource</b><br/>What you put in, the order,<br/>and what you leave out<br/>are design decisions."]:::yellow
+    D4["<b>Confidence Is<br/>Not Validity</b><br/>Wrong answers arrive in<br/>the same fluent tone<br/>as right ones."]:::yellow
 
     P1 --> D1
     P2 --> D2
     P3 --> D3
     P4 --> D4
 
-    D1 -. "Feeds" .-> E1["Evaluation frameworks<br/><i>Module 2</i>"]
-    D2 -. "Feeds" .-> E2["Reference architectures<br/>& RAG<br/><i>Later in Module 1</i>"]
-    D3 -. "Feeds" .-> E3["Model & context<br/>strategy<br/><i>Later in Module 1</i>"]
-    D4 -. "Feeds" .-> E4["Human-in-the-loop<br/>& verification<br/><i>Module 3</i>"]
-
-    style D1 fill:#fff3cd,stroke:#ffc107,color:#000
-    style D2 fill:#fff3cd,stroke:#ffc107,color:#000
-    style D3 fill:#fff3cd,stroke:#ffc107,color:#000
-    style D4 fill:#fff3cd,stroke:#ffc107,color:#000
+    D1 -. "Feeds" .-> E1["Evaluation frameworks<br/><i>Module 2</i>"]:::green
+    D2 -. "Feeds" .-> E2["Reference architectures<br/>& RAG<br/><i>Later in Module 1</i>"]:::green
+    D3 -. "Feeds" .-> E3["Model & context<br/>strategy<br/><i>Later in Module 1</i>"]:::green
+    D4 -. "Feeds" .-> E4["Human-in-the-loop<br/>& verification<br/><i>Module 3</i>"]:::green
 ```
 
 | Property | Design Consequence | Where it applies |

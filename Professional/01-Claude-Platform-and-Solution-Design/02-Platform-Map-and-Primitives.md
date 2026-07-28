@@ -8,27 +8,36 @@ You know the four properties from the previous section. Now name the two remaini
 
 These layers are not alternatives. Every deployment involves all three. Confusing them is the most common source of muddled architecture conversations.
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│  ENTRY POINTS                        Stakeholder: User      │
-│  What a person or system directly interacts with            │
-│                                                             │
-│  Claude.ai (web/mobile/desktop) · Claude Code · Custom App  │
-├──────────────────────────────┬──────────────────────────────┤
-│                              ↓                              │
-├──────────────────────────────┴──────────────────────────────┤
-│  BUILD-TIME INTERFACES               Stakeholder: Engineer  │
-│  How an engineer programs against Claude                    │
-│                                                             │
-│  Direct API · SDKs · MCP · Agent SDK                        │
-├──────────────────────────────┬──────────────────────────────┤
-│                              ↓                              │
-├──────────────────────────────┴──────────────────────────────┤
-│  DELIVERY ROUTES                     Stakeholder: Infra     │
-│  Where API traffic terminates                               │
-│                                                             │
-│  Anthropic · AWS Bedrock · GCP Vertex AI · Microsoft Foundry│
-└─────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TD
+    subgraph EP["<b>ENTRY POINTS</b> · Stakeholder: User"]
+        direction LR
+        E1["Claude.ai<br/>(web/mobile/desktop)"]
+        E2["Claude Code"]
+        E3["Custom App<br/>built on the API"]
+    end
+
+    subgraph BI["<b>BUILD-TIME INTERFACES</b> · Stakeholder: Engineer"]
+        direction LR
+        B1["Direct API"]
+        B2["SDKs"]
+        B3["MCP"]
+        B4["Agent SDK"]
+    end
+
+    subgraph DR["<b>DELIVERY ROUTES</b> · Stakeholder: Infra"]
+        direction LR
+        D1["Anthropic<br/>directly"]
+        D2["AWS<br/>Bedrock"]
+        D3["GCP<br/>Vertex AI"]
+        D4["Microsoft<br/>Foundry"]
+    end
+
+    EP ==> BI ==> DR
+
+    style EP fill:#fff3cd,stroke:#ffc107,color:#000
+    style BI fill:#d4edda,stroke:#28a745,color:#000
+    style DR fill:#cce5ff,stroke:#007bff,color:#000
 ```
 
 | Layer | Chosen for | Stakeholder |
@@ -69,22 +78,22 @@ These layers are not alternatives. Every deployment involves all three. Confusin
 
 Every pattern in this course (augmented call, workflow, agent) is an assembly of these primitives. Name them once here so later lessons become combinations of parts you already recognize.
 
-```
-┌──────────────────┬──────────────────┬──────────────────┐
-│  Tools           │  MCP             │  Subagents       │
-│  ─────           │  ───             │  ─────────       │
-│  Act             │  Connect         │  Isolate /       │
-│                  │                  │  Parallelize     │
-├──────────────────┼──────────────────┼──────────────────┤
-│  Hooks           │  Skills          │  Agent Teams     │
-│  ─────           │  ──────          │  ───────────     │
-│  Guarantee       │  Package a       │  Coordinate      │
-│                  │  Procedure       │  Peers           │
-├──────────────────┴──────────────────┴──────────────────┤
-│  Dynamic Workflows                                     │
-│  ─────────────────                                     │
-│  Compose steps at runtime, not fixed in advance        │
-└────────────────────────────────────────────────────────┘
+```mermaid
+flowchart LR
+    classDef yellow fill:#fff3cd,stroke:#ffc107,color:#000
+    classDef green fill:#d4edda,stroke:#28a745,color:#000
+
+    T["<b>Tools</b><br/>Act"]:::yellow
+    M["<b>MCP</b><br/>Connect"]:::yellow
+    S["<b>Subagents</b><br/>Isolate /<br/>Parallelize"]:::yellow
+    H["<b>Hooks</b><br/>Guarantee"]:::yellow
+    SK["<b>Skills</b><br/>Package a<br/>Procedure"]:::green
+    AT["<b>Agent Teams</b><br/>Coordinate<br/>Peers"]:::green
+    DW["<b>Dynamic<br/>Workflows</b><br/>Compose at<br/>Runtime"]:::green
+
+    T ~~~ M ~~~ S ~~~ H
+    SK ~~~ AT ~~~ DW
+    T ~~~ SK
 ```
 
 | Primitive | Job | What it is |
@@ -103,27 +112,17 @@ Every pattern in this course (augmented call, workflow, agent) is an assembly of
 
 You are not choosing among primitives yet. Here is the preview of how they compose:
 
-```
-                         ┌─────────────────────────────────┐
-                         │          PATTERNS                │
-                         └─────────────────────────────────┘
+```mermaid
+flowchart LR
+    classDef yellow fill:#fff3cd,stroke:#ffc107,color:#000
+    classDef green fill:#d4edda,stroke:#28a745,color:#000
+    classDef blue fill:#cce5ff,stroke:#007bff,color:#000
 
-  ┌─────────────────┐   ┌─────────────────┐   ┌──────────────────────┐
-  │    Workflow      │   │     Agent       │   │  Multi-Agent System  │
-  │                  │   │                 │   │                      │
-  │  Steps wired in  │   │  Model chooses  │   │  Orchestrator        │
-  │  YOUR code       │   │  ITS OWN        │   │  delegates to        │
-  │                  │   │  sequence        │   │  Subagents           │
-  ├──────────────────┤   ├─────────────────┤   ├──────────────────────┤
-  │  Core:  Tools    │   │  Core:  Tools   │   │  Core:  Tools        │
-  │  Opt:   Hooks    │   │  Opt:   Skills  │   │         Subagents    │
-  │                  │   │         Hooks   │   │         Agent Teams  │
-  │                  │   │                 │   │  Opt:   Dyn Workflows│
-  │                  │   │                 │   │         Hooks        │
-  └──────────────────┘   └─────────────────┘   └──────────────────────┘
+    W["<b>Workflow</b><br/>Steps wired in YOUR code<br/>You control the sequence<br/><br/>Core: Tools<br/>Opt: Hooks"]:::yellow
+    A["<b>Agent</b><br/>Model chooses ITS OWN<br/>sequence of Tool calls<br/><br/>Core: Tools<br/>Opt: Skills, Hooks"]:::green
+    MA["<b>Multi-Agent System</b><br/>Orchestrator delegates<br/>to Subagents<br/><br/>Core: Tools, Subagents,<br/>Agent Teams<br/>Opt: Dynamic Workflows"]:::blue
 
-       You control            Model controls         Orchestrator
-       the sequence           the sequence           distributes work
+    W --- A --- MA
 ```
 
 > **The key:** A Workflow is you telling the model what to do step by step. An Agent is the model deciding its own steps. A Multi-Agent System is agents coordinating as a team. The control shifts from you to the model as you move right.
