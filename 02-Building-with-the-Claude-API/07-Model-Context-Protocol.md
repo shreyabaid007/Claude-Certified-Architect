@@ -126,13 +126,13 @@ flowchart TD
 
 These three primitives exist because different things need data at different points in the flow, and through different mechanisms.
 
-| Primitive | Who decides to use it | How it works | Example |
+| Primitive | Control | Used for | Example |
 |---|---|---|---|
-| **Tools** | **Claude** decides during the conversation | Claude sees the tool schemas, picks one, your code executes it via the MCP server | `edit_document("report.pdf", ...)` |
-| **Resources** | **Your app** fetches them proactively | Your code requests data by URI and injects it into the prompt before Claude sees it | `docs://documents/report.pdf` |
-| **Prompts** | **The user** selects them as commands | User picks a pre-built prompt template, arguments get interpolated, messages are sent to Claude | `/format report.pdf` |
+| **Tools** | **Model-controlled.** Claude decides when to call these. | Giving Claude additional functionality: reading files, editing documents, calling APIs | `edit_document("report.pdf", ...)` |
+| **Resources** | **App-controlled.** Your code decides when to fetch these. | Getting data into your app and adding context to messages before Claude sees them | `docs://documents/report.pdf` |
+| **Prompts** | **User-controlled.** The user decides when to trigger these. | Workflows kicked off by user input: slash commands, button clicks, menu options | `/format report.pdf` |
 
-Think of it this way:
+The distinction matters because it determines where decisions happen in your system:
 
 ```
 ┌─────────────────────────────────────────────────────────┐
