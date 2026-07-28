@@ -8,41 +8,11 @@ You know the four properties from the previous section. Now name the two remaini
 
 These layers are not alternatives. Every deployment involves all three. Confusing them is the most common source of muddled architecture conversations.
 
-```mermaid
-flowchart TD
-    classDef concept fill:#fff3cd,stroke:#ffc107,color:#000
-
-    subgraph EP["<b>ENTRY POINTS</b> · Stakeholder: User"]
-        direction LR
-        E1["Claude.ai<br/>(web/mobile/desktop)"]:::concept
-        E2["Claude Code"]:::concept
-        E3["Custom App<br/>built on the API"]:::concept
-    end
-
-    subgraph BI["<b>BUILD-TIME INTERFACES</b> · Stakeholder: Engineer"]
-        direction LR
-        B1["Direct API"]:::concept
-        B2["SDKs"]:::concept
-        B3["MCP"]:::concept
-        B4["Agent SDK"]:::concept
-    end
-
-    subgraph DR["<b>DELIVERY ROUTES</b> · Stakeholder: Infra"]
-        direction LR
-        D1["Anthropic<br/>directly"]:::concept
-        D2["AWS<br/>Bedrock"]:::concept
-        D3["GCP<br/>Vertex AI"]:::concept
-        D4["Microsoft<br/>Foundry"]:::concept
-    end
-
-    EP ==> BI ==> DR
-```
-
-| Layer | Chosen for | Stakeholder |
-|-------|-----------|-------------|
-| **Entry Point** | The user and the work | End user, product owner |
-| **Build-Time Interface** | The engineering team and the integration | Developer, tech lead |
-| **Delivery Route** | Cloud commitments and compliance posture | Infrastructure, security, procurement |
+| Layer | What it is | Examples | Stakeholder |
+|-------|-----------|----------|-------------|
+| **Entry Point** | What a person or system directly interacts with | Claude.ai, Claude Code, Custom App | End user, product owner |
+| **Build-Time Interface** | How an engineer programs against Claude | Direct API, SDKs, MCP, Agent SDK | Developer, tech lead |
+| **Delivery Route** | Where API traffic terminates | Anthropic, AWS Bedrock, GCP Vertex AI, Microsoft Foundry | Infrastructure, security, procurement |
 
 > **The key:** A decision in one layer rarely dictates the others. These are three different conversations with three different stakeholders.
 

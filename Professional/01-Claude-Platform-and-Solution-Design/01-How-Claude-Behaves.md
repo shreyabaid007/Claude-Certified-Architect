@@ -29,38 +29,16 @@ The same characteristic that makes Claude capable in one situation is the same o
 
 ---
 
-## Property 1: Next-Token Prediction
+## The Four Properties in Detail
 
-```mermaid
-flowchart TD
-    classDef concept fill:#fff3cd,stroke:#ffc107,color:#000
+| Property | Capability | Limitation | Mitigation |
+|----------|-----------|------------|------------|
+| **Next-Token Prediction** | Summarizing, reformatting, explaining well-established concepts. Tasks built on common patterns. | Anything requiring precision on specifics. Names, dates, citations, statistics. Text appears accurate but isn't. | Citations, uncertainty signaling, generator-verifier loops. Route factual lookups through tool calls or authoritative sources. |
+| **Knowledge** | Topics that are common, recent, and consistently represented in training data. | Rare, niche, contested, or frequently changing topics. Stale or incomplete information presented with the same confident tone. | Web search, RAG, tool use, or MCP servers to make an external system the source of truth. Re-introduce data yourself. |
+| **Working Memory** | Anything that fits in the active context window. | The context window is a hard edge. Once content falls outside, the model has zero access to it. | Progressive context loading, chunking, front-loading critical information. Summarize across turns when context is getting long. |
+| **Steerability** | Short, concrete, verifiable instructions with defined formats, explicit length limits, and clear roles. | Abstract or ambiguous instructions, long reasoning chains, precise numerical or logical computation. Follows the letter, drifts from intent. | System prompts, structured outputs, code execution for logical precision. Restate the goal alongside the instruction. |
 
-    NTP["<b>NEXT-TOKEN PREDICTION</b><br/><br/><b>Capability:</b> Summarizing, reformatting, explaining<br/>well-established concepts. Tasks built on common patterns.<br/><br/><b>Limitation:</b> Anything requiring precision on specifics.<br/>Names, dates, citations, statistics. Text appears accurate but isn't.<br/><br/><b>Mitigation:</b> Citations, uncertainty signaling, generator-verifier loops.<br/>Route factual lookups through tool calls or authoritative sources."]:::concept
-```
-
----
-
-## Property 2: Knowledge
-
-```mermaid
-flowchart TD
-    classDef concept fill:#fff3cd,stroke:#ffc107,color:#000
-
-    K["<b>KNOWLEDGE</b><br/><br/><b>Capability:</b> Topics that are common, recent, and<br/>consistently represented in training data.<br/><br/><b>Limitation:</b> Rare, niche, contested, or frequently changing topics.<br/>Stale or incomplete information presented with the same confident tone.<br/><br/><b>Mitigation:</b> Web search, RAG, tool use, or MCP servers to make an<br/>external system the source of truth. Re-introduce data yourself."]:::concept
-```
-
----
-
-## Property 3: Working Memory
-
-```mermaid
-flowchart TD
-    classDef concept fill:#fff3cd,stroke:#ffc107,color:#000
-
-    WM["<b>WORKING MEMORY</b><br/><br/><b>Capability:</b> Anything that fits in the active context window.<br/><br/><b>Limitation:</b> The context window is a hard edge. Once content falls<br/>outside, the model has zero access to it.<br/><br/><b>Mitigation:</b> Progressive context loading, chunking, front-loading<br/>critical information. Summarize across turns when context is getting long."]:::concept
-```
-
-Two distinct errors happen at the context window edge:
+Two distinct errors happen at the Working Memory edge:
 
 | Error | When it happens | What you see |
 |-------|-----------------|--------------|
@@ -68,17 +46,6 @@ Two distinct errors happen at the context window edge:
 | **Truncated output** | Prompt fits, but generation hits the window ceiling | `model_context_window_exceeded` stop reason. Output cuts off mid-response. |
 
 > **Tip:** Check the `usage` field on every response and use the token-counting API before you send to avoid hitting either limit.
-
----
-
-## Property 4: Steerability
-
-```mermaid
-flowchart TD
-    classDef concept fill:#fff3cd,stroke:#ffc107,color:#000
-
-    S["<b>STEERABILITY</b><br/><br/><b>Capability:</b> Short, concrete, verifiable instructions with<br/>defined formats, explicit length limits, and clear roles.<br/><br/><b>Limitation:</b> Abstract or ambiguous instructions, long reasoning chains,<br/>precise numerical or logical computation. Follows the letter, drifts from intent.<br/><br/><b>Mitigation:</b> System prompts, structured outputs, code execution for<br/>logical precision. Restate the goal alongside the instruction."]:::concept
-```
 
 ---
 
