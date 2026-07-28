@@ -54,11 +54,11 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-    classDef risk fill:#d6eaf8,stroke:#2980b9,color:#000
+    classDef risk fill:#fce4ec,stroke:#e91e63,color:#000
 
-    C(["<b>Cost</b><br/>Wrong layer = pay to build,<br/>then pay again to replace."]):::risk
-    X(["<b>Complexity</b><br/>Named precisely = clear review.<br/>Blurred = arguing in circles."]):::risk
-    R(["<b>Risk</b><br/>Entry point chosen before<br/>the user is even named."]):::risk
+    C(["<b>Cost</b><br/>Picking the wrong layer because<br/>the vocabulary was unclear means<br/>paying for the wrong solution,<br/>then paying again to replace it."]):::risk
+    X(["<b>Complexity</b><br/>When the three layers are named<br/>precisely, a design review isolates<br/>which decision is contested.<br/>When blurred, it argues in circles."]):::risk
+    R(["<b>Risk</b><br/>An entry point chosen before the<br/>user is named is a common,<br/>avoidable architecture error<br/>traceable to collapsing the<br/>three layers into one."]):::risk
 
     C ~~~ X ~~~ R
 ```
@@ -131,11 +131,11 @@ Shared vocabulary eliminates this. The primitives table above is the starting po
 
 ```mermaid
 flowchart LR
-    classDef risk fill:#d6eaf8,stroke:#2980b9,color:#000
+    classDef risk fill:#fce4ec,stroke:#e91e63,color:#000
 
-    C(["<b>Cost</b><br/>Heavy primitive = latency + tokens<br/>on every single request."]):::risk
-    X(["<b>Complexity</b><br/>Each primitive added = one more<br/>part to build, observe, govern."]):::risk
-    R(["<b>Risk</b><br/>No shared vocabulary =<br/>no shared understanding."]):::risk
+    C(["<b>Cost</b><br/>Reaching for a heavier primitive<br/>than the job requires is paid in<br/>latency, tokens, and operational<br/>surface area on every request."]):::risk
+    X(["<b>Complexity</b><br/>Each primitive added is a part to<br/>build, observe, and govern. Use<br/>the fewest primitives necessary<br/>to meet the requirement."]):::risk
+    R(["<b>Risk</b><br/>Without shared vocabulary, teams<br/>cannot communicate effectively<br/>because they do not agree on<br/>what the parts are."]):::risk
 
     C ~~~ X ~~~ R
 ```
