@@ -10,34 +10,32 @@ These layers are not alternatives. Every deployment involves all three. Confusin
 
 ```mermaid
 flowchart TD
+    classDef concept fill:#fff3cd,stroke:#ffc107,color:#000
+
     subgraph EP["<b>ENTRY POINTS</b> · Stakeholder: User"]
         direction LR
-        E1["Claude.ai<br/>(web/mobile/desktop)"]
-        E2["Claude Code"]
-        E3["Custom App<br/>built on the API"]
+        E1["Claude.ai<br/>(web/mobile/desktop)"]:::concept
+        E2["Claude Code"]:::concept
+        E3["Custom App<br/>built on the API"]:::concept
     end
 
     subgraph BI["<b>BUILD-TIME INTERFACES</b> · Stakeholder: Engineer"]
         direction LR
-        B1["Direct API"]
-        B2["SDKs"]
-        B3["MCP"]
-        B4["Agent SDK"]
+        B1["Direct API"]:::concept
+        B2["SDKs"]:::concept
+        B3["MCP"]:::concept
+        B4["Agent SDK"]:::concept
     end
 
     subgraph DR["<b>DELIVERY ROUTES</b> · Stakeholder: Infra"]
         direction LR
-        D1["Anthropic<br/>directly"]
-        D2["AWS<br/>Bedrock"]
-        D3["GCP<br/>Vertex AI"]
-        D4["Microsoft<br/>Foundry"]
+        D1["Anthropic<br/>directly"]:::concept
+        D2["AWS<br/>Bedrock"]:::concept
+        D3["GCP<br/>Vertex AI"]:::concept
+        D4["Microsoft<br/>Foundry"]:::concept
     end
 
     EP ==> BI ==> DR
-
-    style EP fill:#fff3cd,stroke:#ffc107,color:#000
-    style BI fill:#d4edda,stroke:#28a745,color:#000
-    style DR fill:#cce5ff,stroke:#007bff,color:#000
 ```
 
 | Layer | Chosen for | Stakeholder |
@@ -80,16 +78,15 @@ Every pattern in this course (augmented call, workflow, agent) is an assembly of
 
 ```mermaid
 flowchart LR
-    classDef yellow fill:#fff3cd,stroke:#ffc107,color:#000
-    classDef green fill:#d4edda,stroke:#28a745,color:#000
+    classDef concept fill:#fff3cd,stroke:#ffc107,color:#000
 
-    T["<b>Tools</b><br/>Act"]:::yellow
-    M["<b>MCP</b><br/>Connect"]:::yellow
-    S["<b>Subagents</b><br/>Isolate /<br/>Parallelize"]:::yellow
-    H["<b>Hooks</b><br/>Guarantee"]:::yellow
-    SK["<b>Skills</b><br/>Package a<br/>Procedure"]:::green
-    AT["<b>Agent Teams</b><br/>Coordinate<br/>Peers"]:::green
-    DW["<b>Dynamic<br/>Workflows</b><br/>Compose at<br/>Runtime"]:::green
+    T["<b>Tools</b><br/>Act"]:::concept
+    M["<b>MCP</b><br/>Connect"]:::concept
+    S["<b>Subagents</b><br/>Isolate /<br/>Parallelize"]:::concept
+    H["<b>Hooks</b><br/>Guarantee"]:::concept
+    SK["<b>Skills</b><br/>Package a<br/>Procedure"]:::concept
+    AT["<b>Agent Teams</b><br/>Coordinate<br/>Peers"]:::concept
+    DW["<b>Dynamic<br/>Workflows</b><br/>Compose at<br/>Runtime"]:::concept
 
     T ~~~ M ~~~ S ~~~ H
     SK ~~~ AT ~~~ DW
@@ -114,16 +111,20 @@ You are not choosing among primitives yet. Here is the preview of how they compo
 
 ```mermaid
 flowchart LR
-    classDef yellow fill:#fff3cd,stroke:#ffc107,color:#000
-    classDef green fill:#d4edda,stroke:#28a745,color:#000
-    classDef blue fill:#cce5ff,stroke:#007bff,color:#000
+    classDef concept fill:#fff3cd,stroke:#ffc107,color:#000
 
-    W["<b>Workflow</b><br/>Steps wired in YOUR code<br/>You control the sequence<br/><br/>Core: Tools<br/>Opt: Hooks"]:::yellow
-    A["<b>Agent</b><br/>Model chooses ITS OWN<br/>sequence of Tool calls<br/><br/>Core: Tools<br/>Opt: Skills, Hooks"]:::green
-    MA["<b>Multi-Agent System</b><br/>Orchestrator delegates<br/>to Subagents<br/><br/>Core: Tools, Subagents,<br/>Agent Teams<br/>Opt: Dynamic Workflows"]:::blue
+    W["<b>Workflow</b><br/>Steps wired in YOUR code<br/>You control the sequence<br/><br/>Core: Tools<br/>Opt: Hooks"]:::concept
+    A["<b>Agent</b><br/>Model chooses ITS OWN<br/>sequence of Tool calls<br/><br/>Core: Tools<br/>Opt: Skills, Hooks"]:::concept
+    MA["<b>Multi-Agent System</b><br/>Orchestrator delegates<br/>to Subagents<br/><br/>Core: Tools, Subagents,<br/>Agent Teams<br/>Opt: Dynamic Workflows"]:::concept
 
     W --- A --- MA
 ```
+
+| Pattern | Core Primitives | Optional Primitives |
+|---------|----------------|---------------------|
+| **Workflow** | Tools | Hooks |
+| **Agent** | Tools | Skills, Hooks |
+| **Multi-Agent System** | Tools, Subagents, Agent Teams | Dynamic Workflows, Hooks |
 
 > **The key:** A Workflow is you telling the model what to do step by step. An Agent is the model deciding its own steps. A Multi-Agent System is agents coordinating as a team. The control shifts from you to the model as you move right.
 
@@ -159,12 +160,12 @@ Shared vocabulary eliminates this. The primitives table above is the starting po
 
 ```mermaid
 flowchart LR
-    A["<b>Three Layers</b><br/>Entry Point<br/>Build-Time Interface<br/>Delivery Route"] --> B["<b>Different stakeholders</b><br/>User / Engineer / Infra<br/>Don't collapse them"]
-    B --> C["<b>Seven Primitives</b><br/>Tools, MCP, Subagents,<br/>Hooks, Skills,<br/>Agent Teams,<br/>Dynamic Workflows"]
-    C --> D["<b>Compose into Patterns</b><br/>Workflow / Agent /<br/>Multi-Agent System"]
+    classDef concept fill:#fff3cd,stroke:#ffc107,color:#000
+    classDef action fill:#d4edda,stroke:#28a745,color:#000
 
-    style A fill:#fff3cd,stroke:#ffc107,color:#000
-    style D fill:#d4edda,stroke:#28a745,color:#000
+    A["<b>Three Layers</b><br/>Entry Point<br/>Build-Time Interface<br/>Delivery Route"]:::concept --> B["<b>Different stakeholders</b><br/>User / Engineer / Infra<br/>Don't collapse them"]:::concept
+    B --> C["<b>Seven Primitives</b><br/>Tools, MCP, Subagents,<br/>Hooks, Skills,<br/>Agent Teams,<br/>Dynamic Workflows"]:::concept
+    C --> D["<b>Compose into Patterns</b><br/>Workflow / Agent /<br/>Multi-Agent System"]:::action
 ```
 
 | Concept | One-liner |
