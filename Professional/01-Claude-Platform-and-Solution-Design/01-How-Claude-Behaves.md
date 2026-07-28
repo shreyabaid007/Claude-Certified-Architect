@@ -135,23 +135,15 @@ The lesson: a demo is not evidence of determinism. The four properties are prese
 
 ## Cost, Complexity, Risk
 
-```
-┌──────────────────────────────────────────────────────────────┐
-│  Cost        → Designing without these properties is the     │
-│                most expensive mistake. The cost lands after   │
-│                launch, when rework is most expensive and      │
-│                rebuilding trust is hardest.                   │
-├──────────────────────────────────────────────────────────────┤
-│  Complexity  → Naming the properties up front keeps later    │
-│                conversations precise. "This is a knowledge-  │
-│                boundary problem" beats debating if the model  │
-│                is "good enough."                              │
-├──────────────────────────────────────────────────────────────┤
-│  Risk        → The properties do not announce themselves.    │
-│                A system that ignores them won't produce an    │
-│                error. It drifts quietly. Found in an audit    │
-│                or by an angry user, not by the system itself. │
-└──────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart LR
+    classDef concept fill:#fff3cd,stroke:#ffc107,color:#000
+
+    C["<b>Cost</b><br/>The most expensive mistake.<br/>Lands after launch when<br/>rework is costliest and<br/>rebuilding trust is hardest."]:::concept
+    X["<b>Complexity</b><br/>Naming properties up front<br/>keeps conversations precise.<br/>'Knowledge-boundary problem'<br/>beats 'is the model good enough?'"]:::concept
+    R["<b>Risk</b><br/>Properties don't announce<br/>themselves. No error produced.<br/>System drifts quietly. Found in<br/>an audit or by an angry user."]:::concept
+
+    C ~~~ X ~~~ R
 ```
 
 ---

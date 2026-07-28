@@ -52,22 +52,15 @@ flowchart TD
 
 ### Cost, Complexity, Risk
 
-```
-┌──────────────────────────────────────────────────────────────┐
-│  Cost        → Picking the wrong layer because the           │
-│                vocabulary was unclear means paying for the    │
-│                wrong solution, then paying again to replace.  │
-├──────────────────────────────────────────────────────────────┤
-│  Complexity  → When the three layers are named precisely,    │
-│                a design review isolates which decision is     │
-│                contested. When blurred, the review argues     │
-│                in circles.                                    │
-├──────────────────────────────────────────────────────────────┤
-│  Risk        → An entry point chosen before the user is      │
-│                named is a common, avoidable architecture      │
-│                error traceable to collapsing three layers     │
-│                into one.                                      │
-└──────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart LR
+    classDef concept fill:#fff3cd,stroke:#ffc107,color:#000
+
+    C["<b>Cost</b><br/>Wrong layer = wrong solution.<br/>You pay once to build it,<br/>then again to replace it."]:::concept
+    X["<b>Complexity</b><br/>Named precisely, a review<br/>isolates which decision is<br/>contested. Blurred, it<br/>argues in circles."]:::concept
+    R["<b>Risk</b><br/>Entry point chosen before<br/>the user is named. Common,<br/>avoidable, traceable to<br/>collapsing the layers."]:::concept
+
+    C ~~~ X ~~~ R
 ```
 
 ---
@@ -136,22 +129,15 @@ Shared vocabulary eliminates this. The primitives table above is the starting po
 
 ### Cost, Complexity, Risk
 
-```
-┌──────────────────────────────────────────────────────────────┐
-│  Cost        → Reaching for a heavier primitive than the job │
-│                requires is paid in latency, tokens, and      │
-│                operational surface area on every request.     │
-│                (e.g., agent team when a single tool call      │
-│                would suffice)                                 │
-├──────────────────────────────────────────────────────────────┤
-│  Complexity  → Each primitive added is a part to build,      │
-│                observe, and govern. Use the fewest            │
-│                primitives necessary to meet the requirement.  │
-├──────────────────────────────────────────────────────────────┤
-│  Risk        → Without shared vocabulary, teams cannot        │
-│                communicate effectively because they do not    │
-│                agree on what the parts are.                   │
-└──────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart LR
+    classDef concept fill:#fff3cd,stroke:#ffc107,color:#000
+
+    C["<b>Cost</b><br/>Heavier primitive than the<br/>job requires = latency,<br/>tokens, and operational<br/>surface on every request."]:::concept
+    X["<b>Complexity</b><br/>Each primitive added is a<br/>part to build, observe, and<br/>govern. Use the fewest<br/>that meet the requirement."]:::concept
+    R["<b>Risk</b><br/>Without shared vocabulary,<br/>teams cannot communicate.<br/>They do not agree on<br/>what the parts are."]:::concept
+
+    C ~~~ X ~~~ R
 ```
 
 ---
