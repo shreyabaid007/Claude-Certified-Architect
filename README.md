@@ -129,6 +129,8 @@ Fork this repo and check off topics as you study. This is your personal checklis
 | **Deep study** | Read top to bottom. Each section follows a visual-first pattern: diagram or table, then explanation |
 | **Exam prep** | Focus on the **Exam Traps** tables. They cover the distinctions and common mistakes that are easy to get backwards |
 | **Self-test** | Cover the third column of any Exam Traps table and quiz yourself |
+| **Look something up** | [GLOSSARY.md](GLOSSARY.md) defines every term in one place, one anchor each |
+| **Last hour before the exam** | [CHEATSHEET.md](CHEATSHEET.md) has every countable set on one page |
 
 ## Contributing
 
