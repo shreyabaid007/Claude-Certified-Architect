@@ -22,10 +22,10 @@
 
 ### Professional (complete)
 
-| # | Module | Topics | Status |
-|---|--------|--------|--------|
-| 01 | [Claude Platform & Solution Design](Professional/01-Claude-Platform-and-Solution-Design/) | Four properties, platform primitives, delegation, patterns, multi-agent, reference architectures, RAG, model selection, prompt architecture, entry points, delivery routes | Done |
-| 02 | [Enterprise Integration & Production](Professional/02-Enterprise-Integration-and-Production/) | Evals, POC to production, sizing & feasibility, integration patterns, A/B testing & observability | Done |
-| 03 | [Responsible AI, Safety & Risk](Professional/03-Responsible-AI-Safety-and-Risk-for-Architects/) | Alignment, guardrails, fairness, review routing, compliance | Done |
-| 04 | [Stakeholder Engagement & GTM](Professional/04-Stakeholder-Engagement-Lifecycle-and-GTM/) | Discovery, tradeoff framing, feedback loops, documentation, entry point & outcome documents | Done |
-| 05 | [Team Enablement & Ops](Professional/05-Team-Enablement-and-Operational-Productivity/) | Team setup, developer workflows, operational support | Done |
+| # | Module | Topics |
+|---|--------|--------|
+| 01 | [Claude Platform & Solution Design](Professional/01-Claude-Platform-and-Solution-Design/) | Four properties, platform primitives, delegation, patterns, multi-agent, reference architectures, RAG, model selection, prompt architecture, entry points, delivery routes |
+| 02 | [Enterprise Integration & Production](Professional/02-Enterprise-Integration-and-Production/) | Evals, POC to production, sizing & feasibility, integration patterns, A/B testing & observability |
+| 03 | [Responsible AI, Safety & Risk](Professional/03-Responsible-AI-Safety-and-Risk-for-Architects/) | Alignment, guardrails, fairness, review routing, compliance |
+| 04 | [Stakeholder Engagement & GTM](Professional/04-Stakeholder-Engagement-Lifecycle-and-GTM/) | Discovery, tradeoff framing, feedback loops, documentation, entry point & outcome documents |
+| 05 | [Team Enablement & Ops](Professional/05-Team-Enablement-and-Operational-Productivity/) | Team setup, developer workflows, operational support |
