@@ -11,7 +11,11 @@ Where a term is introduced in Foundations and extended in Professional, both sen
 
 ---
 
+
+
 ## A
+
+
 
 ### Agent
 
@@ -32,6 +36,8 @@ One bounded model call, optionally with tools or retrieval attached. The definin
 Taught in [Choosing a Pattern](Professional/01-Claude-Platform-and-Solution-Design/04-Choosing-a-Pattern.md).
 
 ## B
+
+
 
 ### Batch API
 
@@ -58,6 +64,8 @@ The layer a partner's engineering team writes code against, such as the API, an 
 Taught in [Platform Map and Primitives](Professional/01-Claude-Platform-and-Solution-Design/02-Platform-Map-and-Primitives.md).
 
 ## C
+
+
 
 ### Cache breakpoint
 
@@ -169,6 +177,8 @@ Taught in [Sizing and Feasibility](Professional/02-Enterprise-Integration-and-Pr
 
 ## D
 
+
+
 ### Data drift
 
 The input distribution has changed while the model has not. Distinguished from [model drift](#model-drift), where behaviour on stable inputs changes. Diagnosing which one you have determines whether you fix the pipeline or the prompt.
@@ -237,6 +247,8 @@ Taught in [Reference Architectures](Professional/01-Claude-Platform-and-Solution
 
 ## E
 
+
+
 ### Entry point
 
 The wrapper that decides who talks to Claude, what Claude can touch, and how much engineering it takes to get there. Chosen for the user and the work. Distinct from a [build-time interface](#build-time-interface) and a [delivery route](#delivery-route); collapsing these three is a common design error.
@@ -286,6 +298,8 @@ A billed, per-request reasoning pass before the model answers. Enable it for a m
 Taught in [Claude Features](Foundations/02-Building-with-the-Claude-API/06-Claude-Features.md) and [Model, Context Window, and Context Strategy](Professional/01-Claude-Platform-and-Solution-Design/08-Model-Context-Window-and-Context-Strategy.md).
 
 ## F
+
+
 
 ### Fail closed
 
@@ -343,6 +357,8 @@ Taught in [Tool Use](Foundations/02-Building-with-the-Claude-API/04-Tool-Use.md)
 
 ## G
 
+
+
 ### Golden dataset
 
 Representative inputs paired with expected outputs, including edge cases and counterexamples. The word doing the work is *representative*: a dataset that does not reflect production traffic produces evals that do not mean anything.
@@ -368,6 +384,8 @@ The rule for choosing an eval grader: cheapest reliable method first. Code where
 Taught in [Evals as Acceptance Criteria](Professional/02-Enterprise-Integration-and-Production/01-Evals-as-Acceptance-Criteria.md).
 
 ## H
+
+
 
 ### HIPAA control
 
@@ -395,6 +413,8 @@ Taught in [Retrieval Augmented Generation](Foundations/02-Building-with-the-Clau
 
 ## I
 
+
+
 ### Indirect injection
 
 Malicious instructions arriving through retrieved content or tool outputs, which the model may treat as trusted. Input screening does not catch it, because the content enters after the input check has already passed. Retrieved content and tool outputs need their own classifier.
@@ -408,6 +428,8 @@ Everything your application layer enforces at request time: system instructions,
 Taught in [Alignment](Professional/03-Responsible-AI-Safety-and-Risk-for-Architects/01-Alignment.md).
 
 ## J
+
+
 
 ### Judge calibration
 
@@ -423,6 +445,8 @@ Taught in [Developer Workflows](Professional/05-Team-Enablement-and-Operational-
 
 ## K
 
+
+
 ### Knowledge
 
 One of the [four properties](#the-four-properties). Claude is strong on common, recent, consistent topics and weak on rare or changing ones. The design consequence is that anything authoritative should come from RAG, a tool, or MCP rather than from the model's [parametric knowledge](#parametric-knowledge).
@@ -430,6 +454,8 @@ One of the [four properties](#the-four-properties). Claude is strong on common, 
 Taught in [How Claude Behaves](Professional/01-Claude-Platform-and-Solution-Design/01-How-Claude-Behaves.md).
 
 ## L
+
+
 
 ### Latency drivers
 
@@ -451,6 +477,8 @@ Taught in [Developer Workflows](Professional/05-Team-Enablement-and-Operational-
 
 ## M
 
+
+
 ### MCP
 
 **Model Context Protocol.** An open standard that shifts tool definitions and execution out of your application and into specialised servers. Architecturally it is a sharing convention across products, not a calling convention within one: build a server once and multiple Claude clients reach the same tools. The tradeoff is harder tool-call debugging, since the tool no longer lives in your codebase.
@@ -465,7 +493,7 @@ Taught in [Model Context Protocol](Foundations/02-Building-with-the-Claude-API/0
 
 ### MCP Server
 
-A process wrapping an external service and exposing [tools](#tools-mcp-primitive), [resources](#resources), and [prompts](#prompts) for clients to consume.
+A process wrapping an external service and exposing [tools](#tools), [resources](#resources), and [prompts](#prompts) for clients to consume.
 
 Taught in [Model Context Protocol](Foundations/02-Building-with-the-Claude-API/07-Model-Context-Protocol.md).
 
@@ -501,6 +529,8 @@ Taught in [Evals as Acceptance Criteria](Professional/02-Enterprise-Integration-
 
 ## N
 
+
+
 ### Necessity filter
 
 The data-handling rule: if a field is not required for the language task, it does not belong in the context window. Applied before encryption or access control, because the cheapest data to protect is data you never sent.
@@ -521,6 +551,8 @@ Taught in [How Claude Behaves](Professional/01-Claude-Platform-and-Solution-Desi
 
 ## O
 
+
+
 ### Observability vs decision logging
 
 The same instrumentation serving two questions. Observability asks whether the system is healthy. Decision logging asks why one specific decision happened. A system can be fully observable and still unable to explain a single outcome to a regulator.
@@ -540,6 +572,8 @@ The artifact that makes value legible to a non-technical sponsor. Six fields: us
 Taught in [Entry Point and Outcome Document](Professional/04-Stakeholder-Engagement-Lifecycle-and-GTM/05-Entry-Point-and-Outcome-Document.md).
 
 ## P
+
+
 
 ### p95
 
@@ -608,6 +642,8 @@ As an MCP primitive: pre-built instruction templates exposed by a server, which 
 Taught in [Model Context Protocol](Foundations/02-Building-with-the-Claude-API/07-Model-Context-Protocol.md).
 
 ## R
+
+
 
 ### RAG
 
@@ -694,6 +730,8 @@ Known symptom-to-cause-to-action paths the team can follow without the Architect
 Taught in [Operational Support](Professional/05-Team-Enablement-and-Operational-Productivity/03-Operational-Support.md).
 
 ## S
+
+
 
 ### Sample size
 
@@ -835,6 +873,8 @@ Taught in [Accessing and Making Requests](Foundations/02-Building-with-the-Claud
 
 ## T
 
+
+
 ### Template
 
 A prompt with parameterized slots inside fixed scaffolding. The scaffolding is where guarantees live; the slots are where variation is allowed.
@@ -855,13 +895,13 @@ Taught in [Retrieval Augmented Generation](Foundations/02-Building-with-the-Clau
 
 ### The 4 Ds
 
-The four AI Fluency competencies: **[Delegation](#delegation), [Description](#description), [Discernment](#discernment), [Diligence](#diligence)**. Description and Discernment share the same three parts (product, process, performance) because one is for asking and the other for checking, which is why they loop together.
+The four AI Fluency competencies: **[Delegation](#delegation), [Description](#description), [Discernment](#discernment), [Diligence**](#diligence). Description and Discernment share the same three parts (product, process, performance) because one is for asking and the other for checking, which is why they loop together.
 
 Taught in [AI Fluency](Foundations/01-AI-Fluency-Framework-and-Foundations/README.md).
 
 ### The four properties
 
-The four behavioural properties an architect reasons from: **[next-token prediction](#next-token-prediction), [knowledge](#knowledge), [working memory](#working-memory), [steerability](#steerability)**. They are the lens applied to every step of a [delegation map](#delegation-map), and they are present whether or not your architecture acknowledges them.
+The four behavioural properties an architect reasons from: **[next-token prediction](#next-token-prediction), [knowledge](#knowledge), [working memory](#working-memory), [steerability**](#steerability). They are the lens applied to every step of a [delegation map](#delegation-map), and they are present whether or not your architecture acknowledges them.
 
 Taught in [How Claude Behaves](Professional/01-Claude-Platform-and-Solution-Design/01-How-Claude-Behaves.md).
 
@@ -887,7 +927,7 @@ Taught in [Tool Use](Foundations/02-Building-with-the-Claude-API/04-Tool-Use.md)
 
 As a platform primitive: a function the model can call to take an action or fetch a result. This is what lets the model *act* rather than only produce text.
 
-<a id="tools-mcp-primitive"></a>As an MCP primitive: functions Claude can invoke mid-conversation, defined on a server with `@mcp.tool` and type hints.
+As an MCP primitive: functions Claude can invoke mid-conversation, defined on a server with `@mcp.tool` and type hints.
 
 Taught in [Platform Map and Primitives](Professional/01-Claude-Platform-and-Solution-Design/02-Platform-Map-and-Primitives.md) and [Model Context Protocol](Foundations/02-Building-with-the-Claude-API/07-Model-Context-Protocol.md).
 
@@ -917,6 +957,8 @@ Taught in [Model Context Protocol](Foundations/02-Building-with-the-Claude-API/0
 
 ## U
 
+
+
 ### Underspecification
 
 A gap in a prompt that the model fills with its own assumption, differently each time. The root cause of output variance that looks like [non-determinism](#non-determinism) but is actually a prompt defect.
@@ -924,6 +966,8 @@ A gap in a prompt that the model fills with its own assumption, differently each
 Taught in [Prompt Architecture and Reuse](Professional/01-Claude-Platform-and-Solution-Design/09-Prompt-Architecture-and-Reuse.md).
 
 ## V
+
+
 
 ### Vector database
 
@@ -944,6 +988,8 @@ Walking the request and data paths to find where risk enters: user input, retrie
 Taught in [Guardrails](Professional/03-Responsible-AI-Safety-and-Risk-for-Architects/02-Guardrails.md).
 
 ## W
+
+
 
 ### Working memory
 
