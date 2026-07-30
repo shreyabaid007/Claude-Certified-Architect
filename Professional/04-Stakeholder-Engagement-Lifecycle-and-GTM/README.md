@@ -2,7 +2,9 @@
 
 Lead the stakeholder conversations that decide whether a working system actually ships, adopts, and outlasts your involvement.
 
-**Duration:** 178 Minutes | **Status:** Registered
+**Notes:** 5 | **Status:** In progress
+
+Course length: 178 min.
 
 [Module 3](../03-Responsible-AI-Safety-and-Risk-for-Architects/README.md) ended with a governed, auditable Claude deployment: alignment boundaries drawn, guardrails placed, fairness instrumented, review routing designed, and a compliance register in place. This module asks the question that follows. What happens when the design meets the people who fund it, approve it, inherit it, and judge whether it was worth it?
 
@@ -93,3 +95,7 @@ The five topics map onto the project lifecycle. Identifying the phase a decision
 | **Monitoring & iteration** | Feedback loop |
 | **Handoff** | Documentation for handoff and audit |
 | **Close the loop** | Entry point selection, outcome document |
+
+---
+
+[Back to Professional](../README.md) · [Back to the study guide](../../README.md)

@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question or study discussion
+    url: https://github.com/shreyabaid007/Claude-Certified-Architect/discussions
+    about: Ask a question, compare notes, or talk through a concept. Not for exam questions or recalled exam content.
+  - name: Anthropic documentation
+    url: https://docs.claude.com
+    about: The source of truth for the platform. If a note contradicts the docs, the docs win.
+  - name: Official exam program (Pearson VUE)
+    url: https://www.pearsonvue.com/us/en/anthropic.html
+    about: Eligibility, scheduling, retake policy, and the current exam guides. Format and fees are set by Anthropic, not by this repo.
+  - name: Contributing guide
+    url: https://github.com/shreyabaid007/Claude-Certified-Architect/blob/main/CONTRIBUTING.md
+    about: Note conventions, the two hard rules, and the review checklist. Read this before opening a pull request.

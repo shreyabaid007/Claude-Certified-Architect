@@ -224,14 +224,16 @@ flowchart LR
 
 #### The Six Permission Modes
 
-| Mode | What it does |
-|---|---|
-| **Default** | Asks before each action. |
-| **acceptEdits** | Approves file edits and common filesystem commands (`mkdir`, `touch`, `rm`, `mv`, `cp`, `sed`). Other Bash commands still prompt. |
-| **Plan mode** | Locks the session to read-only until the user approves a plan. |
-| **Auto mode** | A classifier approves safe actions and blocks risky ones. A research preview, working on all plans and admin-enabled on Team and Enterprise. Defaults to the Anthropic API as provider; an environment variable enables CSP providers. |
-| **dontAsk** | Auto-denies anything that would prompt, and runs only what your allow rules cover. The mode for locked-down CI. |
-| **bypassPermissions** | Skips all checks. Scoped to containers or CI only. |
+| Mode | UI label | What it does |
+|---|---|---|
+| `default` | Manual | Asks before each action. |
+| `acceptEdits` | Accept Edits | Approves file edits and common filesystem commands (`mkdir`, `touch`, `rm`, `mv`, `cp`, `sed`). Other Bash commands still prompt. |
+| `plan` | Plan | Locks the session to read-only until the user approves a plan. |
+| `auto` | Auto | A classifier approves safe actions and blocks risky ones. A research preview, working on all plans and admin-enabled on Team and Enterprise. Defaults to the Anthropic API as provider; an environment variable enables CSP providers. |
+| `dontAsk` | Don't Ask | Auto-denies anything that would prompt, and runs only what your allow rules cover. The mode for locked-down CI. |
+| `bypassPermissions` | Bypass Permissions | Skips all checks. Scoped to containers or CI only. |
+
+> **Naming note:** The config value is what you write in `settings.json` under `permissions.defaultMode` or pass to `--permission-mode`. The UI label is what the interface shows. The first mode splits the two: its value is `default` but every surface labels it **Manual**, with `manual` accepted as an alias. The [Foundations note](../../Foundations/04-Claude-Code-in-Action/README.md#the-six-modes) uses the same pairing.
 
 ---
 
@@ -347,7 +349,7 @@ flowchart LR
 | **Shaping layers** | CLAUDE.md, Skills, Subagents, MCP servers. What the agent knows and does. |
 | **Governing layers** | Hooks, permissions, sandboxing. What the agent is allowed to touch. |
 | **Permissions vs Hooks** | Permissions govern what it may touch. Hooks govern what must happen before or after. |
-| **Six permission modes** | Default, acceptEdits, Plan, Auto, dontAsk, bypassPermissions. |
+| **Six permission modes** | `default` (Manual), `acceptEdits`, `plan`, `auto`, `dontAsk`, `bypassPermissions`. |
 | **Skills as integration** | `container.skills`, the `/v1/skills` endpoint, version control. Requires the Code Execution Tool. |
 
 ### Exam Traps

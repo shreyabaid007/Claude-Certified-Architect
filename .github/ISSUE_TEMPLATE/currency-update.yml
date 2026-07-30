@@ -1,0 +1,76 @@
+name: Currency update
+description: A note was accurate when written but the platform has moved on.
+title: "[Currency]: "
+labels:
+  - currency
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The platform changes faster than these notes do. Model names, API fields, feature availability, pricing structure, and console layouts all drift.
+
+        This is different from a [content correction](https://github.com/shreyabaid007/Claude-Certified-Architect/issues/new?template=content-correction.yml): the note was not wrong, it has simply aged out.
+
+  - type: input
+    id: file
+    attributes:
+      label: Which file
+      description: Path to the note, ideally with a line number.
+      placeholder: Foundations/04-Claude-Code-in-Action/README.md#L340
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What changed
+      options:
+        - Model name or version is out of date
+        - API field, parameter, or response shape changed
+        - Feature is no longer in research preview, or has been withdrawn
+        - Feature moved, was renamed, or was folded into something else
+        - CLI flag, command, or permission mode changed
+        - Console or dashboard navigation no longer matches
+        - Documentation URL moved
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: stale
+    attributes:
+      label: What the note says now
+      description: Quote the stale line.
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: What is true now
+      description: Describe the current behaviour, and link the documentation that shows it.
+      render: markdown
+    validations:
+      required: true
+
+  - type: dropdown
+    id: handling
+    attributes:
+      label: Suggested handling
+      description: Some facts are worth restating; some are better marked as liable to move.
+      options:
+        - Update the text to the current fact
+        - Update the text and add a "Current practice note" callout pointing at the docs
+        - Replace the specific fact with a pointer to the documentation
+        - Not sure
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: rules
+    attributes:
+      label: Confirmation
+      options:
+        - label: This report contains no exam questions and no verbatim course material.
+          required: true
