@@ -9,8 +9,6 @@
 
 ---
 
-Scannable, revision-friendly study notes with mermaid diagrams, comparison tables, exam traps, and quick-reference summaries. Fork the repo, check off topics as you go, and walk into the exam confident.
-
 ## Study Guide
 
 ### Foundations (complete)
