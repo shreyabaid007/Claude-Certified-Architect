@@ -114,22 +114,19 @@ Only the skill descriptions load at launch. There is no cost to packaging every 
 
 ## Permission Modes
 
-Permission modes let you decide once what Claude can run without asking. Press **Shift+Tab** to cycle through the everyday modes.
+Permission modes let you decide once what Claude can run without asking. **Shift+Tab** cycles three of the six. The other three are reached a different way.
 
 ### The Six Modes
 
 ```mermaid
 flowchart TD
-    subgraph interactive["Interactive (Shift+Tab cycles these)"]
-        M["<b>default</b> (Manual)<br/>Read only, asks for rest"]
-        AE["<b>acceptEdits</b> (Accept Edits)<br/>Reads + edits + basic FS"]
-        P["<b>plan</b> (Plan)<br/>Read only, proposes changes"]
-        AU["<b>auto</b> (Auto)<br/>Everything, classifier reviews"]
-    end
-    subgraph unattended["Unattended"]
-        DA["<b>dontAsk</b> (Don't Ask)<br/>Pre-approved tools only,<br/>rest auto-denied"]
-        BP["<b>bypassPermissions</b> (Bypass)<br/>Skips all checks.<br/>Isolated containers only"]
-    end
+    M["<b>default</b> (Manual)<br/>Read only, asks for rest"] --> AE["<b>acceptEdits</b> (Accept Edits)<br/>Reads + edits + basic FS"]
+    AE --> P["<b>plan</b> (Plan)<br/>Read only, proposes changes"]
+    P -->|"Shift+Tab wraps"| M
+    P -.->|"only if enabled"| BP["<b>bypassPermissions</b> (Bypass)<br/>Needs an enabling flag<br/>at startup"]
+    BP -.->|"only if available"| AU["<b>auto</b> (Auto)<br/>Classifier reviews.<br/>Account must qualify"]
+    AU -.-> M
+    DA["<b>dontAsk</b> (Don't Ask)<br/>Never in the cycle.<br/>Set by flag only"]
 
     style M fill:#d4edda,stroke:#28a745,color:#000
     style AE fill:#d4edda,stroke:#28a745,color:#000
@@ -138,6 +135,15 @@ flowchart TD
     style DA fill:#fff3cd,stroke:#ffc107,color:#000
     style BP fill:#f8d7da,stroke:#dc3545,color:#000
 ```
+
+Solid arrows are the base cycle: `default` → `acceptEdits` → `plan`, then back round. Dashed arrows are the optional modes, which slot in **after `plan`** when they are enabled, `bypassPermissions` first and `auto` last. `dontAsk` never joins the cycle at all.
+
+| How you reach it | Modes |
+|---|---|
+| **Always in the Shift+Tab cycle** | `default`, `acceptEdits`, `plan` |
+| **Joins the cycle when your account qualifies** | `auto` |
+| **Joins the cycle only if you started with an enabling flag** | `bypassPermissions` |
+| **Never in the cycle, flag only** | `dontAsk` |
 
 | Mode | UI label | Allows Without Asking | Use When |
 |---|---|---|---|
@@ -149,6 +155,8 @@ flowchart TD
 | `bypassPermissions` | Bypass Permissions | Everything, no checks | Isolated containers/VMs only |
 
 > **Naming note:** Every mode has a **config value** you write in `settings.json` under `permissions.defaultMode` or pass to `--permission-mode`, and a **UI label** the interface shows. They differ most on the first one: the config value is `default`, but the CLI, both IDE extensions, and the desktop app all label it **Manual**, and Claude Code accepts `manual` as an alias. Expect either wording in a question stem.
+
+> **Verify before you build:** Which modes appear in the Shift+Tab cycle is version- and account-dependent, and it has changed between Claude Code releases. `auto` availability in particular varies by plan, organization policy, model, and provider, and on some providers it is in the cycle by default. Re-check the [permission modes documentation](https://code.claude.com/docs/en/permission-modes) rather than relying on this diagram for a specific setup.
 
 ### Auto Mode: Intent, Not Correctness
 
@@ -486,7 +494,7 @@ flowchart TD
 | **Imports** | Organize long files but do not reduce context. Expanded inline. |
 | **Verification skills** | Auto-triggered checks that confirm tests pass and were not weakened. |
 | **Skill folders** | Hold reference docs and scripts alongside skill.md. Only descriptions load at launch. |
-| **Permission modes** | Six levels from Manual to Bypass. Shift+Tab cycles the everyday ones. |
+| **Permission modes** | Six modes. Shift+Tab cycles `default` → `acceptEdits` → `plan`; `auto` and `bypassPermissions` join only when enabled, `dontAsk` never does. |
 | **Auto mode classifier** | Guards intent (dangerous actions), not correctness (broken code). |
 | **Hooks** | Deterministic code at fixed points. PreToolUse blocks, Stop gates, exit 2 enforces. |
 | **Exit code 2 vs 1** | Exit 2 blocks and feeds error back. Exit 1 does NOT block. |

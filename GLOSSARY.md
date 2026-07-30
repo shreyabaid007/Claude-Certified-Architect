@@ -601,7 +601,7 @@ Taught in [Sizing and Feasibility](Professional/02-Enterprise-Integration-and-Pr
 
 ### Permission modes
 
-The six modes controlling what Claude Code can do without prompting. Config values are `default`, `acceptEdits`, `plan`, `auto`, `dontAsk`, and `bypassPermissions`; `default` is labelled **Manual** in the interface. Shift+Tab cycles the everyday ones.
+The six modes controlling what Claude Code can do without prompting. Config values are `default`, `acceptEdits`, `plan`, `auto`, `dontAsk`, and `bypassPermissions`; `default` is labelled **Manual** in the interface. Shift+Tab cycles `default` → `acceptEdits` → `plan` only: `auto` joins when the account qualifies, `bypassPermissions` when started with an enabling flag, and `dontAsk` never.
 
 Taught in [Claude Code in Action](Foundations/04-Claude-Code-in-Action/README.md) and [Entry Points and Interfaces](Professional/01-Claude-Platform-and-Solution-Design/10-Entry-Points-and-Interfaces.md).
 
