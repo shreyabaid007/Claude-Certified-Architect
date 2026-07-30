@@ -44,13 +44,9 @@ This Code of Conduct applies within all community spaces, and also applies when 
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement at:
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement at **shreyabaid16@gmail.com**.
 
-> **[PLACEHOLDER: reporting contact not yet set]**
->
-> A reporting address has not been configured for this project yet. Until it is, report a
-> concern by opening a [private security advisory](../../security/advisories/new) or by
-> contacting the repository owner directly through their GitHub profile.
+If you would rather not send email, open a [private security advisory](../../security/advisories/new) instead. It is visible only to the repository maintainers, and it works as a confidential reporting channel for conduct concerns as well as security ones.
 
 All complaints will be reviewed and investigated promptly and fairly.
 
