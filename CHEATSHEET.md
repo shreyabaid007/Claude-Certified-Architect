@@ -70,7 +70,9 @@ Be clear and direct · Be specific with guidelines · XML tags for structure · 
 | `dontAsk` | Don't Ask |
 | `bypassPermissions` | Bypass Permissions |
 
-Shift+Tab cycles the everyday ones. The config value is what you write in `settings.json`; the UI label is what the interface shows.
+The config value is what you write in `settings.json`; the UI label is what the interface shows.
+
+**Shift+Tab cycles `default` → `acceptEdits` → `plan`.** The other three are not in the base cycle: `auto` joins when your account qualifies, `bypassPermissions` joins only if you started with an enabling flag, and `dontAsk` never appears in the cycle at all. Cycle membership is version- and account-dependent, so [re-check the docs](https://code.claude.com/docs/en/permission-modes) for a specific setup.
 
 ### Hook events and exit codes
 
