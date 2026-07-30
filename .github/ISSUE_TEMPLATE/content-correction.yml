@@ -1,0 +1,71 @@
+name: Content correction
+description: A note states something that is wrong, contradicts the documentation, or is internally inconsistent.
+title: "[Correction]: "
+labels:
+  - correction
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for catching this. Corrections are the most valuable contribution to this repo.
+
+        **Before you file:** do not include exam questions, answer options, or anything recalled from an exam you sat. See [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md).
+
+  - type: input
+    id: file
+    attributes:
+      label: Which file
+      description: Path to the note, ideally with a line number.
+      placeholder: Professional/03-Responsible-AI-Safety-and-Risk-for-Architects/02-Guardrails.md#L158
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: What the note currently says
+      description: Quote the sentence, table row, or diagram node as written.
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: correct
+    attributes:
+      label: What it should say
+      description: Your proposed wording. A rough version is fine.
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: source
+    attributes:
+      label: Source
+      description: Link the documentation page or public source that supports the correction. A correction without a source is much slower to action.
+      placeholder: https://docs.claude.com/en/docs/...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind of error
+      options:
+        - Factually wrong
+        - Contradicts Anthropic documentation
+        - Contradicts another note in this repo
+        - Invented mapping or taxonomy the source does not support
+        - Broken link or anchor
+        - Diagram does not render, or is unreadable in dark mode
+        - Other
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: rules
+    attributes:
+      label: Confirmation
+      options:
+        - label: This report contains no exam questions and no verbatim course material.
+          required: true

@@ -1,0 +1,25 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+# Two trailing spaces are a hard line break in Markdown. Trimming them
+# silently reflows paragraphs and collapses line breaks inside table cells
+# and blockquotes, so leave whitespace alone in notes.
+[*.md]
+trim_trailing_whitespace = false
+
+[*.{yml,yaml}]
+indent_size = 2
+
+[*.py]
+indent_size = 4
+
+[LICENSE]
+insert_final_newline = false
+trim_trailing_whitespace = false
