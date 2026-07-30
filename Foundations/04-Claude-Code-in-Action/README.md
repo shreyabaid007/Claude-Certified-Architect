@@ -121,14 +121,14 @@ Permission modes let you decide once what Claude can run without asking. Press *
 ```mermaid
 flowchart TD
     subgraph interactive["Interactive (Shift+Tab cycles these)"]
-        M["<b>Manual</b><br/>Read only, asks for rest"]
-        AE["<b>Accept Edits</b><br/>Reads + edits + basic FS"]
-        P["<b>Plan</b><br/>Read only, proposes changes"]
-        AU["<b>Auto</b><br/>Everything, classifier reviews"]
+        M["<b>default</b> (Manual)<br/>Read only, asks for rest"]
+        AE["<b>acceptEdits</b> (Accept Edits)<br/>Reads + edits + basic FS"]
+        P["<b>plan</b> (Plan)<br/>Read only, proposes changes"]
+        AU["<b>auto</b> (Auto)<br/>Everything, classifier reviews"]
     end
     subgraph unattended["Unattended"]
-        DA["<b>Don't Ask</b><br/>Pre-approved tools only,<br/>rest auto-denied"]
-        BP["<b>Bypass Permissions</b><br/>Skips all checks.<br/>Isolated containers only"]
+        DA["<b>dontAsk</b> (Don't Ask)<br/>Pre-approved tools only,<br/>rest auto-denied"]
+        BP["<b>bypassPermissions</b> (Bypass)<br/>Skips all checks.<br/>Isolated containers only"]
     end
 
     style M fill:#d4edda,stroke:#28a745,color:#000
@@ -139,14 +139,16 @@ flowchart TD
     style BP fill:#f8d7da,stroke:#dc3545,color:#000
 ```
 
-| Mode | Allows Without Asking | Use When |
-|---|---|---|
-| **Manual** | Reads only | You want full control |
-| **Accept Edits** | Reads, edits, common FS commands | Iterating on code you review after |
-| **Plan** | Reads only | Research and proposal, no edits |
-| **Auto** | Everything (classifier reviews) | Hands-off supervised work |
-| **Don't Ask** | Pre-approved tools only | CI, pipelines, no human present |
-| **Bypass** | Everything, no checks | Isolated containers/VMs only |
+| Mode | UI label | Allows Without Asking | Use When |
+|---|---|---|---|
+| `default` | Manual | Reads only | You want full control |
+| `acceptEdits` | Accept Edits | Reads, edits, common FS commands | Iterating on code you review after |
+| `plan` | Plan | Reads only | Research and proposal, no edits |
+| `auto` | Auto | Everything (classifier reviews) | Hands-off supervised work |
+| `dontAsk` | Don't Ask | Pre-approved tools only | CI, pipelines, no human present |
+| `bypassPermissions` | Bypass Permissions | Everything, no checks | Isolated containers/VMs only |
+
+> **Naming note:** Every mode has a **config value** you write in `settings.json` under `permissions.defaultMode` or pass to `--permission-mode`, and a **UI label** the interface shows. They differ most on the first one: the config value is `default`, but the CLI, both IDE extensions, and the desktop app all label it **Manual**, and Claude Code accepts `manual` as an alias. Expect either wording in a question stem.
 
 ### Auto Mode: Intent, Not Correctness
 

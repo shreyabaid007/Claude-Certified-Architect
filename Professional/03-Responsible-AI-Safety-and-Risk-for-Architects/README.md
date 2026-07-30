@@ -2,7 +2,9 @@
 
 Design the full safety stack for a Claude system, placing each control and deciding what happens when one fails.
 
-**Duration:** 114 Minutes | **Notes:** 5 | **Status:** Complete
+**Notes:** 5 | **Status:** Complete
+
+Course length: 114 min.
 
 [Module 2](../02-Enterprise-Integration-and-Production/README.md) ended with an operational production system: ownership assigned, a reference architecture and model chosen, the use case sized, evals built as acceptance criteria, and Claude wired into an enterprise stack. This module asks the security question that follows. What stops the system from refusing a valid request, producing an unfair outcome, or taking an action no one approved?
 

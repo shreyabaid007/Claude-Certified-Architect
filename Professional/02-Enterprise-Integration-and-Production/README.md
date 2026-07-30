@@ -2,7 +2,9 @@
 
 Learn to take a designed solution from proof of concept to enterprise-ready production.
 
-**Duration:** 158 Minutes | **Notes:** 5 | **Status:** In progress
+**Notes:** 5 | **Status:** In progress
+
+Course length: 158 min.
 
 [Module 1](../01-Claude-Platform-and-Solution-Design/README.md) introduced architectural concepts. This module goes deep on the specifics: it assumes a strong systems background, skips foundational concepts, and focuses on the decisions that separate a prototype from a production system.
 

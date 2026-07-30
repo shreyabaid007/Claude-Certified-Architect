@@ -41,6 +41,8 @@ Scannable, revision-friendly study notes with mermaid diagrams, comparison table
 
 Certification is open to organisations in the **Claude Partner Network**, and counts toward partner program standing. Prep courses and the exam guides live in the [Anthropic Partner Academy](https://anthropic-partners.skilljar.com/page/partner-certifications). Scheduling runs through [Pearson VUE](https://www.pearsonvue.com/us/en/anthropic.html), either at a test centre or online with OnVUE proctoring; you register through the Partner Academy first and receive Pearson credentials by email. Retakes are gated at **14 days** after a first attempt, **30 days** after a second, and **90 days** after a third, with up to **4 attempts per exam in any rolling 12-month period**. Digital badges are issued through [Credly](https://www.credly.com).
 
+**Exam fees as of July 2026: $125 (Foundations), $175 (Professional).** Verified against the official course pages linked above. Check the current pages before booking.
+
 > [!NOTE]
 > **Exam format, domain weightings, and fees are set by Anthropic and change between exam versions.** Read them from the current official exam guide, not from any third-party summary, including this one. Nothing in this repository should be treated as a statement about how the exam is scored or structured.
 

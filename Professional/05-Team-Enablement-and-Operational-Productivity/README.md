@@ -2,7 +2,9 @@
 
 Enable a team to adopt a live Claude system and keep it healthy without pulling you into every issue.
 
-**Duration:** 45 Minutes | **Notes:** 3 | **Status:** Complete
+**Notes:** 3 | **Status:** Complete
+
+Course length: 45 min.
 
 [Module 4](../04-Stakeholder-Engagement-Lifecycle-and-GTM/README.md) took a deployment through stakeholder discovery, tradeoff framing, feedback loops, documentation, and the outcome document. The system is built, governed, approved, and handed off. This module asks the question that follows. How does a team adopt it well, and how does it stay healthy?
 
