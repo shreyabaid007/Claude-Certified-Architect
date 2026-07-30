@@ -15,7 +15,7 @@
 
 | # | Module | Topics |
 |---|--------|--------|
-| 01 | [AI Fluency: Framework & Foundations](Foundations/01-AI-Fluency-Framework-and-Foundations/) | The 4 Ds (Delegation, Description, Directing, Determining), AI fluency framework |
+| 01 | [AI Fluency: Framework & Foundations](Foundations/01-AI-Fluency-Framework-and-Foundations/) | The 4 Ds (Delegation, Description, Discernment, Diligence), AI fluency framework |
 | 02 | [Building with the Claude API](Foundations/02-Building-with-the-Claude-API/) | API access, prompt engineering, prompt evaluation, tool use, RAG, citations, code execution, MCP, agents & workflows |
 | 03 | [Claude on Google Cloud](Foundations/03-Claude-on-Google-Cloud/) | Vertex AI Model Garden setup, enabling models |
 | 04 | [Claude Code in Action](Foundations/04-Claude-Code-in-Action/) | CLI workflows, hooks, MCP servers, CLAUDE.md, practical patterns |
