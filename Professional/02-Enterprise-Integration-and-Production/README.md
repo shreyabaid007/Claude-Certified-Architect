@@ -2,7 +2,7 @@
 
 Learn to take a designed solution from proof of concept to enterprise-ready production.
 
-**Duration:** 158 Minutes | **Status:** In progress
+**Duration:** 158 Minutes | **Notes:** 5 | **Status:** In progress
 
 [Module 1](../01-Claude-Platform-and-Solution-Design/README.md) introduced architectural concepts. This module goes deep on the specifics: it assumes a strong systems background, skips foundational concepts, and focuses on the decisions that separate a prototype from a production system.
 
@@ -70,3 +70,7 @@ flowchart LR
 | **Sizing** | Estimate call volume, token consumption, and cost. Assess feasibility against the [four AI properties](../01-Claude-Platform-and-Solution-Design/01-How-Claude-Behaves.md), and scope the solution with explicit boundary conditions |
 | **Integration** | Specify integration patterns for compliance (regulated industries, BAA coverage, data residency), identity (SSO/OAuth), authorization, data handling, and observability. Place the right integration point (API, SDK, MCP, Claude Code) at each layer |
 | **A/B & Observability** | Plan and interpret an A/B test on a live Claude system: hypothesis, metrics, sample size, and a reading of the result that doesn't overclaim |
+
+---
+
+[Back to Professional](../README.md) · [Back to the study guide](../../README.md)

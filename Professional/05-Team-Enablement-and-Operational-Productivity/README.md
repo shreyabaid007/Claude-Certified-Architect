@@ -2,7 +2,7 @@
 
 Enable a team to adopt a live Claude system and keep it healthy without pulling you into every issue.
 
-**Duration:** 45 Minutes | **Status:** Registered
+**Duration:** 45 Minutes | **Notes:** 3 | **Status:** Complete
 
 [Module 4](../04-Stakeholder-Engagement-Lifecycle-and-GTM/README.md) took a deployment through stakeholder discovery, tradeoff framing, feedback loops, documentation, and the outcome document. The system is built, governed, approved, and handed off. This module asks the question that follows. How does a team adopt it well, and how does it stay healthy?
 
@@ -58,3 +58,7 @@ flowchart LR
 | **Team setup** | Configure Claude tooling and environments for a team: shared configuration, rollout pattern, skills distribution strategy, and spend controls |
 | **Developer workflows** | Improve developer workflows with AI tooling and define the review discipline that keeps AI-generated work trustworthy before it reaches production |
 | **Operational support** | Connect symptoms to architecture causes and build the team toward self-sufficiency in debugging and operational issue resolution |
+
+---
+
+[Back to Professional](../README.md) · [Back to the study guide](../../README.md)

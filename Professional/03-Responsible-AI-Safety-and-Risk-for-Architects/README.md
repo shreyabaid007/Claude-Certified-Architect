@@ -2,7 +2,7 @@
 
 Design the full safety stack for a Claude system, placing each control and deciding what happens when one fails.
 
-**Duration:** 114 Minutes | **Status:** Done
+**Duration:** 114 Minutes | **Notes:** 5 | **Status:** Complete
 
 [Module 2](../02-Enterprise-Integration-and-Production/README.md) ended with an operational production system: ownership assigned, a reference architecture and model chosen, the use case sized, evals built as acceptance criteria, and Claude wired into an enterprise stack. This module asks the security question that follows. What stops the system from refusing a valid request, producing an unfair outcome, or taking an action no one approved?
 
@@ -78,3 +78,7 @@ flowchart LR
 | **Compliance** | Map each obligation to a named control, an owner, and an evidence artifact, so the architecture can be accurately audited |
 
 The module ends with a cumulative task: assemble all five layers into a defensible deployment from a single brief, the way you would in front of a security reviewer or compliance auditor.
+
+---
+
+[Back to Professional](../README.md) · [Back to the study guide](../../README.md)

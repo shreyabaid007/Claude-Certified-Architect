@@ -2,7 +2,7 @@
 
 Master the design decisions that translate an ambiguous business problem into a defensible Claude solution architecture.
 
-**Status:** In progress
+**Notes:** 11 | **Status:** In progress
 
 ---
 
@@ -78,3 +78,7 @@ flowchart LR
 | **Choose Model & Context** | Defend your model tier, context window, and context strategy. Evals gate every swap |
 | **Map Entry Points** | Know which entry point fits (Claude.ai, API, SDK, Claude Code, MCP) and what belongs at each layer |
 | **Apply Governance** | Separate user-facing entry points, build-time interfaces, and delivery routes. Regulatory constraints rule first |
+
+---
+
+[Back to Professional](../README.md) · [Back to the study guide](../../README.md)
