@@ -9,7 +9,7 @@ body:
       value: |
         Thanks for catching this. Corrections are the most valuable contribution to this repo.
 
-        **Before you file:** do not include exam questions, answer options, or anything recalled from an exam you sat. See [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md).
+        **Before you file:** do not include exam questions, answer options, or anything recalled from an exam you sat. See [CONTRIBUTING.md](https://github.com/shreyabaid007/Claude-Certified-Architect/blob/main/CONTRIBUTING.md).
 
   - type: input
     id: file

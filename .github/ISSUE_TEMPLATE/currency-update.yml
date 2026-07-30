@@ -9,7 +9,7 @@ body:
       value: |
         The platform changes faster than these notes do. Model names, API fields, feature availability, pricing structure, and console layouts all drift.
 
-        This is different from a [content correction](./content-correction.yml): the note was not wrong, it has simply aged out.
+        This is different from a [content correction](https://github.com/shreyabaid007/Claude-Certified-Architect/issues/new?template=content-correction.yml): the note was not wrong, it has simply aged out.
 
   - type: input
     id: file

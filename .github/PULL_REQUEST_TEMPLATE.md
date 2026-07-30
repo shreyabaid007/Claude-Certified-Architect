@@ -65,4 +65,4 @@ say why in the notes at the bottom.
 
 ---
 
-By opening this pull request I agree my contribution is licensed under [CC BY-SA 4.0](../blob/main/LICENSE).
+By opening this pull request I agree my contribution is licensed under [CC BY-SA 4.0](https://github.com/shreyabaid007/Claude-Certified-Architect/blob/main/LICENSE).

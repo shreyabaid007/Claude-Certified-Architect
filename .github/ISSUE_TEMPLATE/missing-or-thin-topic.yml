@@ -9,7 +9,7 @@ body:
       value: |
         Use this when something you needed was not here, or was here but too thin to be useful.
 
-        **Before you file:** do not include exam questions or anything recalled from an exam you sat. Describing a *concept* you found under-covered is fine. Describing *an item you were asked* is not. See [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md).
+        **Before you file:** do not include exam questions or anything recalled from an exam you sat. Describing a *concept* you found under-covered is fine. Describing *an item you were asked* is not. See [CONTRIBUTING.md](https://github.com/shreyabaid007/Claude-Certified-Architect/blob/main/CONTRIBUTING.md).
 
   - type: dropdown
     id: level
