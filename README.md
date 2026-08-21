@@ -19,7 +19,7 @@ Notes for the two Claude Certified Architect exams. Each note leads with a diagr
 
 ---
 
-<a href="https://www.credly.com/badges/dccf39e5-7132-40cf-a4c3-d4bbf5258660/public_url"><img src="badge.png" alt="Claude Certified Architect – Professional" width="120"></a>
+<a href="https://www.credly.com/badges/dccf39e5-7132-40cf-a4c3-d4bbf5258660/public_url"><img src="badge.png" alt="Claude Certified Architect – Professional" width="110" align="left"></a>
 
 I put these notes together while preparing for the Claude Certified Architect — Professional (CCAR-P) exam, which I’m happy to share I’ve [successfully cleared](https://www.credly.com/badges/dccf39e5-7132-40cf-a4c3-d4bbf5258660/public_url). 🎉
 
