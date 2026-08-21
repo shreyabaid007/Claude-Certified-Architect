@@ -2,7 +2,7 @@
 
 Design the full safety stack for a Claude system, placing each control and deciding what happens when one fails.
 
-**Notes:** 5 | **Status:** Complete
+**Notes:** 5 | All teaching topics covered
 
 Course length: 114 min.
 

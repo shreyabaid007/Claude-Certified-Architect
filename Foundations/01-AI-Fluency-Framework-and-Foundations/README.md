@@ -159,7 +159,7 @@ A short note saying AI helped. Four pieces: **what you used → what for → how
 
 ---
 
-## Quick revision
+## Quick Revision
 
 | Skill | Three parts | Stops you from |
 |---|---|---|

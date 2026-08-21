@@ -2,7 +2,7 @@
 
 The full spectrum of working with Anthropic models using the Claude API. Eight notes, running from a first authenticated request through to agents that decide their own next step.
 
-**Status:** Complete
+All teaching topics covered.
 
 ---
 

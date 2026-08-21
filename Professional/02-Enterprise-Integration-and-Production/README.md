@@ -2,7 +2,7 @@
 
 Learn to take a designed solution from proof of concept to enterprise-ready production.
 
-**Notes:** 5 | **Status:** In progress
+**Notes:** 5 | All teaching topics covered
 
 Course length: 158 min.
 
