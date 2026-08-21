@@ -83,4 +83,4 @@ The module ends with a cumulative task: assemble all five layers into a defensib
 
 ---
 
-[Back to Professional](../README.md) · [Back to the study guide](../../README.md)
+[Back to the study guide](../../README.md)

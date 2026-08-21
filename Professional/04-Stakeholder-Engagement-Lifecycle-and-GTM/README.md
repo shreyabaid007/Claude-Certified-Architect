@@ -98,4 +98,4 @@ The five topics map onto the project lifecycle. Identifying the phase a decision
 
 ---
 
-[Back to Professional](../README.md) · [Back to the study guide](../../README.md)
+[Back to the study guide](../../README.md)

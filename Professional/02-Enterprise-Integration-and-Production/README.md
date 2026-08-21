@@ -75,4 +75,4 @@ flowchart LR
 
 ---
 
-[Back to Professional](../README.md) · [Back to the study guide](../../README.md)
+[Back to the study guide](../../README.md)

@@ -21,4 +21,4 @@ All teaching topics covered.
 
 ---
 
-[Back to Foundations](../README.md) · [Back to the study guide](../../README.md)
+[Back to the study guide](../../README.md)
