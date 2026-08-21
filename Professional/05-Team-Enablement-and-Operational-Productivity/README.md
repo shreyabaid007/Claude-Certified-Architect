@@ -2,7 +2,7 @@
 
 Enable a team to adopt a live Claude system and keep it healthy without pulling you into every issue.
 
-**Notes:** 3 | **Status:** Complete
+**Notes:** 3 | All teaching topics covered
 
 Course length: 45 min.
 

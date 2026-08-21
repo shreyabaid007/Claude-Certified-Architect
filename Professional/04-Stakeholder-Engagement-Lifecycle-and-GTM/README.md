@@ -2,7 +2,7 @@
 
 Lead the stakeholder conversations that decide whether a working system actually ships, adopts, and outlasts your involvement.
 
-**Notes:** 5 | **Status:** In progress
+**Notes:** 5 | All teaching topics covered
 
 Course length: 178 min.
 
