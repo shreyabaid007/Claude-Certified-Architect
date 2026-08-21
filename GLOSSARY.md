@@ -1159,4 +1159,4 @@ Taught in [Prompt Engineering](Foundations/02-Building-with-the-Claude-API/03-Pr
 
 ---
 
-[Back to the study guide](README.md) · [Cheatsheet](CHEATSHEET.md)
+[Back to the study guide](README.md)
