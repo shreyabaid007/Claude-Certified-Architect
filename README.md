@@ -21,6 +21,4 @@ Notes for the two Claude Certified Architect exams. Each note leads with a diagr
 
 I put these notes together while preparing for the Claude Certified Architect — Professional (CCAR-P) exam, which I’m happy to share I’ve [successfully cleared](https://www.credly.com/badges/dccf39e5-7132-40cf-a4c3-d4bbf5258660/public_url). 🎉
 
-<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="dccf39e5-7132-40cf-a4c3-d4bbf5258660" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-
 Sharing them here in the hope that they can make the preparation journey a little easier for others.
