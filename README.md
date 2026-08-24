@@ -1,6 +1,6 @@
-# Claude Certified Architect — Study Notes
+# Claude Certified Architect: Study Notes
 
-**Study notes for the Claude Certified Architect exams — CCAR-F & CCAR-P.**
+**Study notes for the Claude Certified Architect exams: CCAR-F & CCAR-P.**
 
 <a href="https://www.credly.com/badges/dccf39e5-7132-40cf-a4c3-d4bbf5258660/public_url"><img src="badge.png" alt="Claude Certified Architect – Professional" width="110" align="left"></a>
 
@@ -24,7 +24,7 @@ I put these together while preparing for the exams and have since [cleared CCAR-
 → [Start with Professional](Professional/)
 
 **Want to see the exam objectives first?**
-→ [CCAR-P Exam Blueprint](#ccar-p-exam-blueprint)
+→ [CCAR-P Exam Blueprint](#-ccar-p-exam-blueprint)
 
 **Looking for terminology?**
 → [Glossary](GLOSSARY.md)
@@ -37,14 +37,14 @@ Each note follows a simple structure:
 
 **Diagram / Table → Explanation → Quick Revision**
 
-### CCAR-F — Foundations
+### CCAR-F (Foundations)
 
 1. [AI Fluency: Framework & Foundations](Foundations/01-AI-Fluency-Framework-and-Foundations/)
 2. [Building with the Claude API](Foundations/02-Building-with-the-Claude-API/)
 3. [Claude on Google Cloud](Foundations/03-Claude-on-Google-Cloud/)
 4. [Claude Code in Action](Foundations/04-Claude-Code-in-Action/)
 
-### CCAR-P — Professional
+### CCAR-P (Professional)
 
 1. [Claude Platform & Solution Design](Professional/01-Claude-Platform-and-Solution-Design/)
 2. [Enterprise Integration & Production](Professional/02-Enterprise-Integration-and-Production/)
@@ -74,7 +74,7 @@ The full objective-to-note mapping lives in [EXAM-BLUEPRINT.md](Professional/EXA
 
 ## 📖 Official Material
 
-These notes are a **study companion** to the official [Claude Certified Architect — Professional course](https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional).
+These notes are a **study companion** to the official [Claude Certified Architect Professional course](https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional).
 
 They can also be useful as a structured reference for anyone learning about Claude application architecture, evaluation, integration, safety, and production AI systems.
 
