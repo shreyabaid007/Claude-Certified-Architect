@@ -2,24 +2,7 @@
 
 Notes for the two Claude Certified Architect exams. Each note leads with a diagram or table, then explains, and ends with a quick-revision summary.
 
-A sample from [Platform Map & Primitives](Professional/01-Claude-Platform-and-Solution-Design/02-Platform-Map-and-Primitives.md) — every note opens this way.
-
-```mermaid
-flowchart LR
-    classDef concept fill:#fff3cd,stroke:#ffc107,color:#000
-
-    Y["<b>You</b> control<br/>the sequence"]
-    W["<b>Workflow</b>"]
-    A["<b>Agent</b>"]
-    MA["<b>Multi-Agent<br/>System</b>"]
-    M["<b>The model</b> controls<br/>the sequence"]
-
-    Y --> W --> A --> MA --> M
-
-    class Y,W,A,MA,M concept
-```
-
-Full A–Z terms are in the [Glossary](GLOSSARY.md).
+Official course: [Claude Certified Architect Professional](https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional). Full A–Z terms are in the [Glossary](GLOSSARY.md).
 
 ## Foundations - CCAR-F
 
